@@ -7,21 +7,73 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B51AE54B200AB48900E2552F /* icons8-calendar-50.png in Resources */ = {isa = PBXBuildFile; fileRef = B51AE54A200AB48800E2552F /* icons8-calendar-50.png */; };
+		B51AE54D200ACAD800E2552F /* LiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51AE54C200ACAD800E2552F /* LiftCell.swift */; };
+		B51AE551200B019E00E2552F /* chest.png in Resources */ = {isa = PBXBuildFile; fileRef = B51AE550200B019D00E2552F /* chest.png */; };
+		B51AE553200B01BD00E2552F /* cardio.png in Resources */ = {isa = PBXBuildFile; fileRef = B51AE552200B01BD00E2552F /* cardio.png */; };
+		B51AE556200B025900E2552F /* squats.png in Resources */ = {isa = PBXBuildFile; fileRef = B51AE554200B025900E2552F /* squats.png */; };
+		B51AE557200B025900E2552F /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = B51AE555200B025900E2552F /* back.png */; };
+		B51AE55C200B031E00E2552F /* other.png in Resources */ = {isa = PBXBuildFile; fileRef = B51AE558200B031D00E2552F /* other.png */; };
+		B51AE55D200B031E00E2552F /* push.png in Resources */ = {isa = PBXBuildFile; fileRef = B51AE559200B031D00E2552F /* push.png */; };
+		B51AE55E200B031E00E2552F /* arms.png in Resources */ = {isa = PBXBuildFile; fileRef = B51AE55A200B031E00E2552F /* arms.png */; };
+		B51AE55F200B031E00E2552F /* pull.png in Resources */ = {isa = PBXBuildFile; fileRef = B51AE55B200B031E00E2552F /* pull.png */; };
+		B51AE561200B04CC00E2552F /* core.png in Resources */ = {isa = PBXBuildFile; fileRef = B51AE560200B04CC00E2552F /* core.png */; };
+		B51AE563200B0A0900E2552F /* icons8-menu-48-2.png in Resources */ = {isa = PBXBuildFile; fileRef = B51AE562200B0A0800E2552F /* icons8-menu-48-2.png */; };
+		B51AE565200C5C9200E2552F /* FindVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51AE564200C5C9200E2552F /* FindVC.swift */; };
+		B51AE568200C6EE300E2552F /* ImageCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51AE567200C6EE300E2552F /* ImageCVCell.swift */; };
 		B53F9551200875FA00C2C3B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53F9550200875FA00C2C3B7 /* AppDelegate.swift */; };
-		B53F9553200875FA00C2C3B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53F9552200875FA00C2C3B7 /* ViewController.swift */; };
 		B53F9556200875FA00C2C3B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B53F9554200875FA00C2C3B7 /* Main.storyboard */; };
 		B53F9558200875FA00C2C3B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B53F9557200875FA00C2C3B7 /* Assets.xcassets */; };
 		B53F955B200875FA00C2C3B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B53F9559200875FA00C2C3B7 /* LaunchScreen.storyboard */; };
+		B53F9565200877DC00C2C3B7 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B53F9563200877DC00C2C3B7 /* SWRevealViewController.m */; };
+		B53F956A20087AA600C2C3B7 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53F956920087AA600C2C3B7 /* MainVC.swift */; };
+		B53F956C200887AE00C2C3B7 /* MenuTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53F956B200887AE00C2C3B7 /* MenuTableVC.swift */; };
+		B53F957120089A5200C2C3B7 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = B53F956D20089A5100C2C3B7 /* home.png */; };
+		B53F957220089A5200C2C3B7 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = B53F956E20089A5100C2C3B7 /* settings.png */; };
+		B53F957320089A5200C2C3B7 /* invite.png in Resources */ = {isa = PBXBuildFile; fileRef = B53F956F20089A5100C2C3B7 /* invite.png */; };
+		B53F957420089A5200C2C3B7 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = B53F957020089A5100C2C3B7 /* profile.png */; };
+		B53F957620089B8300C2C3B7 /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = B53F957520089B8300C2C3B7 /* location.png */; };
+		B5436E9F200C7525007F8EDB /* IMG-7211.JPG in Resources */ = {isa = PBXBuildFile; fileRef = B5436E9D200C7524007F8EDB /* IMG-7211.JPG */; };
+		B5436EA0200C7525007F8EDB /* IMG-6709.PNG in Resources */ = {isa = PBXBuildFile; fileRef = B5436E9E200C7524007F8EDB /* IMG-6709.PNG */; };
+		ED695FA6AA9DB51728E57011 /* Pods_Swollmeights.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC68A991F7D0E24AA727AA7E /* Pods_Swollmeights.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		716BFED3E9C203E29EEC45FF /* Pods-Swollmeights.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swollmeights.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swollmeights/Pods-Swollmeights.release.xcconfig"; sourceTree = "<group>"; };
+		B18F90637D3B1926D5E269A9 /* Pods-Swollmeights.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swollmeights.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swollmeights/Pods-Swollmeights.debug.xcconfig"; sourceTree = "<group>"; };
+		B51AE54A200AB48800E2552F /* icons8-calendar-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-calendar-50.png"; path = "../../../../Downloads/icons8-calendar-50.png"; sourceTree = "<group>"; };
+		B51AE54C200ACAD800E2552F /* LiftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiftCell.swift; sourceTree = "<group>"; };
+		B51AE550200B019D00E2552F /* chest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chest.png; path = ../../../../Downloads/chest.png; sourceTree = "<group>"; };
+		B51AE552200B01BD00E2552F /* cardio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cardio.png; path = ../../../../Downloads/cardio.png; sourceTree = "<group>"; };
+		B51AE554200B025900E2552F /* squats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = squats.png; path = ../../../../Downloads/squats.png; sourceTree = "<group>"; };
+		B51AE555200B025900E2552F /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.png; path = ../../../../Downloads/back.png; sourceTree = "<group>"; };
+		B51AE558200B031D00E2552F /* other.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = other.png; path = ../../../../Downloads/other.png; sourceTree = "<group>"; };
+		B51AE559200B031D00E2552F /* push.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = push.png; path = ../../../../Downloads/push.png; sourceTree = "<group>"; };
+		B51AE55A200B031E00E2552F /* arms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arms.png; path = ../../../../Downloads/arms.png; sourceTree = "<group>"; };
+		B51AE55B200B031E00E2552F /* pull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pull.png; path = ../../../../Downloads/pull.png; sourceTree = "<group>"; };
+		B51AE560200B04CC00E2552F /* core.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = core.png; path = ../../../../Downloads/core.png; sourceTree = "<group>"; };
+		B51AE562200B0A0800E2552F /* icons8-menu-48-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-menu-48-2.png"; path = "../../../../Downloads/icons8-menu-48-2.png"; sourceTree = "<group>"; };
+		B51AE564200C5C9200E2552F /* FindVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindVC.swift; sourceTree = "<group>"; };
+		B51AE567200C6EE300E2552F /* ImageCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCVCell.swift; sourceTree = "<group>"; };
 		B53F954D200875FA00C2C3B7 /* Swollmeights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swollmeights.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B53F9550200875FA00C2C3B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B53F9552200875FA00C2C3B7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B53F9555200875FA00C2C3B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B53F9557200875FA00C2C3B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B53F955A200875FA00C2C3B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B53F955C200875FA00C2C3B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B53F9562200877DB00C2C3B7 /* Swollmeights-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Swollmeights-Bridging-Header.h"; sourceTree = "<group>"; };
+		B53F9563200877DC00C2C3B7 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		B53F9564200877DC00C2C3B7 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		B53F956920087AA600C2C3B7 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		B53F956B200887AE00C2C3B7 /* MenuTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableVC.swift; sourceTree = "<group>"; };
+		B53F956D20089A5100C2C3B7 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home.png; path = ../../../../Downloads/home.png; sourceTree = "<group>"; };
+		B53F956E20089A5100C2C3B7 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings.png; path = ../../../../Downloads/settings.png; sourceTree = "<group>"; };
+		B53F956F20089A5100C2C3B7 /* invite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = invite.png; path = ../../../../Downloads/invite.png; sourceTree = "<group>"; };
+		B53F957020089A5100C2C3B7 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = profile.png; path = ../../../../Downloads/profile.png; sourceTree = "<group>"; };
+		B53F957520089B8300C2C3B7 /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = location.png; path = ../../../../Downloads/location.png; sourceTree = "<group>"; };
+		B5436E9D200C7524007F8EDB /* IMG-7211.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "IMG-7211.JPG"; path = "../../../../Downloads/IMG-7211.JPG"; sourceTree = "<group>"; };
+		B5436E9E200C7524007F8EDB /* IMG-6709.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "IMG-6709.PNG"; path = "../../../../Downloads/IMG-6709.PNG"; sourceTree = "<group>"; };
+		BC68A991F7D0E24AA727AA7E /* Pods_Swollmeights.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swollmeights.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +81,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED695FA6AA9DB51728E57011 /* Pods_Swollmeights.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		530575D2ACA389C059C8BFF7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BC68A991F7D0E24AA727AA7E /* Pods_Swollmeights.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B53F9544200875FA00C2C3B7 = {
 			isa = PBXGroup;
 			children = (
 				B53F954F200875FA00C2C3B7 /* Swollmeights */,
 				B53F954E200875FA00C2C3B7 /* Products */,
+				D5C67CD8D481A6F05C1FFD4B /* Pods */,
+				530575D2ACA389C059C8BFF7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +117,56 @@
 		B53F954F200875FA00C2C3B7 /* Swollmeights */ = {
 			isa = PBXGroup;
 			children = (
+				B53F9564200877DC00C2C3B7 /* SWRevealViewController.h */,
+				B53F9563200877DC00C2C3B7 /* SWRevealViewController.m */,
+				B53F956620087A4A00C2C3B7 /* Images */,
 				B53F9550200875FA00C2C3B7 /* AppDelegate.swift */,
-				B53F9552200875FA00C2C3B7 /* ViewController.swift */,
 				B53F9554200875FA00C2C3B7 /* Main.storyboard */,
 				B53F9557200875FA00C2C3B7 /* Assets.xcassets */,
 				B53F9559200875FA00C2C3B7 /* LaunchScreen.storyboard */,
 				B53F955C200875FA00C2C3B7 /* Info.plist */,
+				B53F9562200877DB00C2C3B7 /* Swollmeights-Bridging-Header.h */,
+				B53F956920087AA600C2C3B7 /* MainVC.swift */,
+				B53F956B200887AE00C2C3B7 /* MenuTableVC.swift */,
+				B51AE54C200ACAD800E2552F /* LiftCell.swift */,
+				B51AE564200C5C9200E2552F /* FindVC.swift */,
+				B51AE567200C6EE300E2552F /* ImageCVCell.swift */,
 			);
 			path = Swollmeights;
+			sourceTree = "<group>";
+		};
+		B53F956620087A4A00C2C3B7 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				B5436E9E200C7524007F8EDB /* IMG-6709.PNG */,
+				B5436E9D200C7524007F8EDB /* IMG-7211.JPG */,
+				B51AE562200B0A0800E2552F /* icons8-menu-48-2.png */,
+				B51AE560200B04CC00E2552F /* core.png */,
+				B51AE559200B031D00E2552F /* push.png */,
+				B51AE558200B031D00E2552F /* other.png */,
+				B51AE55A200B031E00E2552F /* arms.png */,
+				B51AE55B200B031E00E2552F /* pull.png */,
+				B51AE555200B025900E2552F /* back.png */,
+				B51AE554200B025900E2552F /* squats.png */,
+				B51AE552200B01BD00E2552F /* cardio.png */,
+				B51AE550200B019D00E2552F /* chest.png */,
+				B51AE54A200AB48800E2552F /* icons8-calendar-50.png */,
+				B53F957520089B8300C2C3B7 /* location.png */,
+				B53F957020089A5100C2C3B7 /* profile.png */,
+				B53F956D20089A5100C2C3B7 /* home.png */,
+				B53F956F20089A5100C2C3B7 /* invite.png */,
+				B53F956E20089A5100C2C3B7 /* settings.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		D5C67CD8D481A6F05C1FFD4B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B18F90637D3B1926D5E269A9 /* Pods-Swollmeights.debug.xcconfig */,
+				716BFED3E9C203E29EEC45FF /* Pods-Swollmeights.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +176,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B53F955F200875FA00C2C3B7 /* Build configuration list for PBXNativeTarget "Swollmeights" */;
 			buildPhases = (
+				DDBB1E1A1CDAA0BD32D31394 /* [CP] Check Pods Manifest.lock */,
 				B53F9549200875FA00C2C3B7 /* Sources */,
 				B53F954A200875FA00C2C3B7 /* Frameworks */,
 				B53F954B200875FA00C2C3B7 /* Resources */,
+				472C6CB4510DE8132D37B733 /* [CP] Embed Pods Frameworks */,
+				A079DE3A5DC3551489D7F71C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -96,6 +204,7 @@
 				TargetAttributes = {
 					B53F954C200875FA00C2C3B7 = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -123,21 +232,99 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B51AE55D200B031E00E2552F /* push.png in Resources */,
+				B51AE55F200B031E00E2552F /* pull.png in Resources */,
 				B53F955B200875FA00C2C3B7 /* LaunchScreen.storyboard in Resources */,
 				B53F9558200875FA00C2C3B7 /* Assets.xcassets in Resources */,
+				B51AE561200B04CC00E2552F /* core.png in Resources */,
+				B5436EA0200C7525007F8EDB /* IMG-6709.PNG in Resources */,
+				B51AE553200B01BD00E2552F /* cardio.png in Resources */,
+				B51AE55C200B031E00E2552F /* other.png in Resources */,
+				B53F957220089A5200C2C3B7 /* settings.png in Resources */,
+				B51AE563200B0A0900E2552F /* icons8-menu-48-2.png in Resources */,
+				B51AE54B200AB48900E2552F /* icons8-calendar-50.png in Resources */,
+				B51AE55E200B031E00E2552F /* arms.png in Resources */,
+				B53F957120089A5200C2C3B7 /* home.png in Resources */,
+				B5436E9F200C7525007F8EDB /* IMG-7211.JPG in Resources */,
+				B51AE551200B019E00E2552F /* chest.png in Resources */,
+				B53F957320089A5200C2C3B7 /* invite.png in Resources */,
+				B53F957620089B8300C2C3B7 /* location.png in Resources */,
+				B51AE557200B025900E2552F /* back.png in Resources */,
+				B53F957420089A5200C2C3B7 /* profile.png in Resources */,
+				B51AE556200B025900E2552F /* squats.png in Resources */,
 				B53F9556200875FA00C2C3B7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		472C6CB4510DE8132D37B733 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swollmeights/Pods-Swollmeights-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A079DE3A5DC3551489D7F71C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Swollmeights/Pods-Swollmeights-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swollmeights/Pods-Swollmeights-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DDBB1E1A1CDAA0BD32D31394 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Swollmeights-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B53F9549200875FA00C2C3B7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B53F9553200875FA00C2C3B7 /* ViewController.swift in Sources */,
 				B53F9551200875FA00C2C3B7 /* AppDelegate.swift in Sources */,
+				B53F956A20087AA600C2C3B7 /* MainVC.swift in Sources */,
+				B51AE54D200ACAD800E2552F /* LiftCell.swift in Sources */,
+				B53F956C200887AE00C2C3B7 /* MenuTableVC.swift in Sources */,
+				B51AE568200C6EE300E2552F /* ImageCVCell.swift in Sources */,
+				B53F9565200877DC00C2C3B7 /* SWRevealViewController.m in Sources */,
+				B51AE565200C5C9200E2552F /* FindVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,14 +459,18 @@
 		};
 		B53F9560200875FA00C2C3B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B18F90637D3B1926D5E269A9 /* Pods-Swollmeights.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6F6K8B7R5J;
 				INFOPLIST_FILE = Swollmeights/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dreim.Swollmeights;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Swollmeights/Swollmeights-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -287,14 +478,17 @@
 		};
 		B53F9561200875FA00C2C3B7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 716BFED3E9C203E29EEC45FF /* Pods-Swollmeights.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6F6K8B7R5J;
 				INFOPLIST_FILE = Swollmeights/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dreim.Swollmeights;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Swollmeights/Swollmeights-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
