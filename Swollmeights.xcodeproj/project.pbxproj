@@ -33,8 +33,6 @@
 		B53F957320089A5200C2C3B7 /* invite.png in Resources */ = {isa = PBXBuildFile; fileRef = B53F956F20089A5100C2C3B7 /* invite.png */; };
 		B53F957420089A5200C2C3B7 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = B53F957020089A5100C2C3B7 /* profile.png */; };
 		B53F957620089B8300C2C3B7 /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = B53F957520089B8300C2C3B7 /* location.png */; };
-		B5436E9F200C7525007F8EDB /* IMG-7211.JPG in Resources */ = {isa = PBXBuildFile; fileRef = B5436E9D200C7524007F8EDB /* IMG-7211.JPG */; };
-		B5436EA0200C7525007F8EDB /* IMG-6709.PNG in Resources */ = {isa = PBXBuildFile; fileRef = B5436E9E200C7524007F8EDB /* IMG-6709.PNG */; };
 		ED695FA6AA9DB51728E57011 /* Pods_Swollmeights.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC68A991F7D0E24AA727AA7E /* Pods_Swollmeights.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,8 +69,6 @@
 		B53F956F20089A5100C2C3B7 /* invite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = invite.png; path = ../../../../Downloads/invite.png; sourceTree = "<group>"; };
 		B53F957020089A5100C2C3B7 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = profile.png; path = ../../../../Downloads/profile.png; sourceTree = "<group>"; };
 		B53F957520089B8300C2C3B7 /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = location.png; path = ../../../../Downloads/location.png; sourceTree = "<group>"; };
-		B5436E9D200C7524007F8EDB /* IMG-7211.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "IMG-7211.JPG"; path = "../../../../Downloads/IMG-7211.JPG"; sourceTree = "<group>"; };
-		B5436E9E200C7524007F8EDB /* IMG-6709.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "IMG-6709.PNG"; path = "../../../../Downloads/IMG-6709.PNG"; sourceTree = "<group>"; };
 		BC68A991F7D0E24AA727AA7E /* Pods_Swollmeights.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swollmeights.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -138,8 +134,6 @@
 		B53F956620087A4A00C2C3B7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				B5436E9E200C7524007F8EDB /* IMG-6709.PNG */,
-				B5436E9D200C7524007F8EDB /* IMG-7211.JPG */,
 				B51AE562200B0A0800E2552F /* icons8-menu-48-2.png */,
 				B51AE560200B04CC00E2552F /* core.png */,
 				B51AE559200B031D00E2552F /* push.png */,
@@ -237,7 +231,6 @@
 				B53F955B200875FA00C2C3B7 /* LaunchScreen.storyboard in Resources */,
 				B53F9558200875FA00C2C3B7 /* Assets.xcassets in Resources */,
 				B51AE561200B04CC00E2552F /* core.png in Resources */,
-				B5436EA0200C7525007F8EDB /* IMG-6709.PNG in Resources */,
 				B51AE553200B01BD00E2552F /* cardio.png in Resources */,
 				B51AE55C200B031E00E2552F /* other.png in Resources */,
 				B53F957220089A5200C2C3B7 /* settings.png in Resources */,
@@ -245,7 +238,6 @@
 				B51AE54B200AB48900E2552F /* icons8-calendar-50.png in Resources */,
 				B51AE55E200B031E00E2552F /* arms.png in Resources */,
 				B53F957120089A5200C2C3B7 /* home.png in Resources */,
-				B5436E9F200C7525007F8EDB /* IMG-7211.JPG in Resources */,
 				B51AE551200B019E00E2552F /* chest.png in Resources */,
 				B53F957320089A5200C2C3B7 /* invite.png in Resources */,
 				B53F957620089B8300C2C3B7 /* location.png in Resources */,
@@ -265,9 +257,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Swollmeights/Pods-Swollmeights-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

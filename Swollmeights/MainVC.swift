@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import Firebase
 
 class MainVC: UIViewController {
 
