@@ -9,8 +9,9 @@
 import UIKit
 import GoogleMaps
 import Firebase
+import CloudKit
 
-class MainVC: UIViewController {
+class MainVC: UIViewController, SWRevealViewControllerDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var open: UIButton!
@@ -38,6 +39,16 @@ class MainVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let ref = Database.database().reference()
+        let uid = Auth.auth().currentUser?.uid
+        
+        guard uid != nil else {
+            let signUp = self.storyboard?.instantiateViewController(withIdentifier: "signUp") as! SignUpVC
+            self.present(signUp, animated: true, completion: nil)
+            return
+        }
+        
         
         let camera = GMSCameraPosition.camera(withLatitude: 40.9312, longitude: -73.8987, zoom: 15.0)
         var mapView = GMSMapView.map(withFrame: mapViewFrame.frame, camera: camera)
@@ -99,7 +110,7 @@ class MainVC: UIViewController {
         let gradient = CAGradientLayer()
         
         gradient.frame = view.bounds
-        gradient.colors = [UIColor.init(red: 201/255, green: 255/255, blue: 209/255, alpha: 0.7).cgColor, UIColor.init(red: 53/255, green: 198/255, blue: 39/255, alpha: 0.6).cgColor]
+        gradient.colors = [UIColor.init(red: 82/255, green: 150/255, blue: 213/255, alpha: 0.6).cgColor, UIColor.init(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0).cgColor]
         
         self.view.layer.insertSublayer(gradient, at: 0)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
@@ -124,6 +135,9 @@ class MainVC: UIViewController {
             }
         }
     }
+    
+    
+    
     
     // weekday is from 1-7,
     

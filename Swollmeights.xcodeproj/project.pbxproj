@@ -12,7 +12,6 @@
 		B51AE551200B019E00E2552F /* chest.png in Resources */ = {isa = PBXBuildFile; fileRef = B51AE550200B019D00E2552F /* chest.png */; };
 		B51AE553200B01BD00E2552F /* cardio.png in Resources */ = {isa = PBXBuildFile; fileRef = B51AE552200B01BD00E2552F /* cardio.png */; };
 		B51AE556200B025900E2552F /* squats.png in Resources */ = {isa = PBXBuildFile; fileRef = B51AE554200B025900E2552F /* squats.png */; };
-		B51AE557200B025900E2552F /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = B51AE555200B025900E2552F /* back.png */; };
 		B51AE55C200B031E00E2552F /* other.png in Resources */ = {isa = PBXBuildFile; fileRef = B51AE558200B031D00E2552F /* other.png */; };
 		B51AE55D200B031E00E2552F /* push.png in Resources */ = {isa = PBXBuildFile; fileRef = B51AE559200B031D00E2552F /* push.png */; };
 		B51AE55E200B031E00E2552F /* arms.png in Resources */ = {isa = PBXBuildFile; fileRef = B51AE55A200B031E00E2552F /* arms.png */; };
@@ -33,6 +32,22 @@
 		B53F957320089A5200C2C3B7 /* invite.png in Resources */ = {isa = PBXBuildFile; fileRef = B53F956F20089A5100C2C3B7 /* invite.png */; };
 		B53F957420089A5200C2C3B7 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = B53F957020089A5100C2C3B7 /* profile.png */; };
 		B53F957620089B8300C2C3B7 /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = B53F957520089B8300C2C3B7 /* location.png */; };
+		B55858D1202D1C8100F4F0AB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B55858D0202D1C8100F4F0AB /* GoogleService-Info.plist */; };
+		B55858D6202D297000F4F0AB /* icons8-menu-50.png in Resources */ = {isa = PBXBuildFile; fileRef = B55858D5202D297000F4F0AB /* icons8-menu-50.png */; };
+		B55858D8202D32AB00F4F0AB /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55858D7202D32AB00F4F0AB /* ProfileVC.swift */; };
+		B55858DC202D352100F4F0AB /* icons8-edit-500.png in Resources */ = {isa = PBXBuildFile; fileRef = B55858DB202D352000F4F0AB /* icons8-edit-500.png */; };
+		B55858DE202D3CA600F4F0AB /* contacts.png in Resources */ = {isa = PBXBuildFile; fileRef = B55858DD202D3CA400F4F0AB /* contacts.png */; };
+		B55858E2202E3A7B00F4F0AB /* icons8-google-plus-528.png in Resources */ = {isa = PBXBuildFile; fileRef = B55858DF202E3A7500F4F0AB /* icons8-google-plus-528.png */; };
+		B55858E3202E3A7B00F4F0AB /* icons8-twitter-520.png in Resources */ = {isa = PBXBuildFile; fileRef = B55858E0202E3A7800F4F0AB /* icons8-twitter-520.png */; };
+		B55858E4202E3A7B00F4F0AB /* icons8-facebook-520.png in Resources */ = {isa = PBXBuildFile; fileRef = B55858E1202E3A7900F4F0AB /* icons8-facebook-520.png */; };
+		B55858E6202E3C7500F4F0AB /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55858E5202E3C7500F4F0AB /* SignUpVC.swift */; };
+		B55858E8202E5AAA00F4F0AB /* icons8-undo-100.png in Resources */ = {isa = PBXBuildFile; fileRef = B55858E7202E5AA700F4F0AB /* icons8-undo-100.png */; };
+		B55858EA202E62B600F4F0AB /* UpdateInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55858E9202E62B600F4F0AB /* UpdateInfoVC.swift */; };
+		B55858EC202E636E00F4F0AB /* icons8-cancel-100.png in Resources */ = {isa = PBXBuildFile; fileRef = B55858EB202E636C00F4F0AB /* icons8-cancel-100.png */; };
+		B55858EE202E7C7500F4F0AB /* AdditionalInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55858ED202E7C7500F4F0AB /* AdditionalInfoVC.swift */; };
+		B55858F0202E8D3600F4F0AB /* icons8-heart-outline-filled-100.png in Resources */ = {isa = PBXBuildFile; fileRef = B55858EF202E8D3000F4F0AB /* icons8-heart-outline-filled-100.png */; };
+		B55858F2202E8DB900F4F0AB /* icons8-delete-100-2.png in Resources */ = {isa = PBXBuildFile; fileRef = B55858F1202E8DB500F4F0AB /* icons8-delete-100-2.png */; };
+		B55858F4202E8FC300F4F0AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55858F3202E8FC300F4F0AB /* User.swift */; };
 		ED695FA6AA9DB51728E57011 /* Pods_Swollmeights.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC68A991F7D0E24AA727AA7E /* Pods_Swollmeights.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,7 +59,6 @@
 		B51AE550200B019D00E2552F /* chest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chest.png; path = ../../../../Downloads/chest.png; sourceTree = "<group>"; };
 		B51AE552200B01BD00E2552F /* cardio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cardio.png; path = ../../../../Downloads/cardio.png; sourceTree = "<group>"; };
 		B51AE554200B025900E2552F /* squats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = squats.png; path = ../../../../Downloads/squats.png; sourceTree = "<group>"; };
-		B51AE555200B025900E2552F /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.png; path = ../../../../Downloads/back.png; sourceTree = "<group>"; };
 		B51AE558200B031D00E2552F /* other.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = other.png; path = ../../../../Downloads/other.png; sourceTree = "<group>"; };
 		B51AE559200B031D00E2552F /* push.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = push.png; path = ../../../../Downloads/push.png; sourceTree = "<group>"; };
 		B51AE55A200B031E00E2552F /* arms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arms.png; path = ../../../../Downloads/arms.png; sourceTree = "<group>"; };
@@ -69,6 +83,23 @@
 		B53F956F20089A5100C2C3B7 /* invite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = invite.png; path = ../../../../Downloads/invite.png; sourceTree = "<group>"; };
 		B53F957020089A5100C2C3B7 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = profile.png; path = ../../../../Downloads/profile.png; sourceTree = "<group>"; };
 		B53F957520089B8300C2C3B7 /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = location.png; path = ../../../../Downloads/location.png; sourceTree = "<group>"; };
+		B55858D0202D1C8100F4F0AB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B55858D2202D249700F4F0AB /* Swollmeights.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Swollmeights.entitlements; sourceTree = "<group>"; };
+		B55858D5202D297000F4F0AB /* icons8-menu-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-menu-50.png"; path = "../../../../Downloads/icons8-menu-50.png"; sourceTree = "<group>"; };
+		B55858D7202D32AB00F4F0AB /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		B55858DB202D352000F4F0AB /* icons8-edit-500.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-edit-500.png"; path = "../../../../Downloads/icons8-edit-500.png"; sourceTree = "<group>"; };
+		B55858DD202D3CA400F4F0AB /* contacts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = contacts.png; path = ../../../../Downloads/contacts.png; sourceTree = "<group>"; };
+		B55858DF202E3A7500F4F0AB /* icons8-google-plus-528.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-google-plus-528.png"; path = "../../../../Downloads/icons8-google-plus-528.png"; sourceTree = "<group>"; };
+		B55858E0202E3A7800F4F0AB /* icons8-twitter-520.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-twitter-520.png"; path = "../../../../Downloads/icons8-twitter-520.png"; sourceTree = "<group>"; };
+		B55858E1202E3A7900F4F0AB /* icons8-facebook-520.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-facebook-520.png"; path = "../../../../Downloads/icons8-facebook-520.png"; sourceTree = "<group>"; };
+		B55858E5202E3C7500F4F0AB /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		B55858E7202E5AA700F4F0AB /* icons8-undo-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-undo-100.png"; path = "../../../../Downloads/icons8-undo-100.png"; sourceTree = "<group>"; };
+		B55858E9202E62B600F4F0AB /* UpdateInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateInfoVC.swift; sourceTree = "<group>"; };
+		B55858EB202E636C00F4F0AB /* icons8-cancel-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-cancel-100.png"; path = "../../../../Downloads/icons8-cancel-100.png"; sourceTree = "<group>"; };
+		B55858ED202E7C7500F4F0AB /* AdditionalInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoVC.swift; sourceTree = "<group>"; };
+		B55858EF202E8D3000F4F0AB /* icons8-heart-outline-filled-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-heart-outline-filled-100.png"; path = "../../../../Downloads/icons8-heart-outline-filled-100.png"; sourceTree = "<group>"; };
+		B55858F1202E8DB500F4F0AB /* icons8-delete-100-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-delete-100-2.png"; path = "../../../../Downloads/icons8-delete-100-2.png"; sourceTree = "<group>"; };
+		B55858F3202E8FC300F4F0AB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BC68A991F7D0E24AA727AA7E /* Pods_Swollmeights.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swollmeights.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -113,6 +144,8 @@
 		B53F954F200875FA00C2C3B7 /* Swollmeights */ = {
 			isa = PBXGroup;
 			children = (
+				B55858D2202D249700F4F0AB /* Swollmeights.entitlements */,
+				B55858D0202D1C8100F4F0AB /* GoogleService-Info.plist */,
 				B53F9564200877DC00C2C3B7 /* SWRevealViewController.h */,
 				B53F9563200877DC00C2C3B7 /* SWRevealViewController.m */,
 				B53F956620087A4A00C2C3B7 /* Images */,
@@ -127,6 +160,11 @@
 				B51AE54C200ACAD800E2552F /* LiftCell.swift */,
 				B51AE564200C5C9200E2552F /* FindVC.swift */,
 				B51AE567200C6EE300E2552F /* ImageCVCell.swift */,
+				B55858D7202D32AB00F4F0AB /* ProfileVC.swift */,
+				B55858E5202E3C7500F4F0AB /* SignUpVC.swift */,
+				B55858E9202E62B600F4F0AB /* UpdateInfoVC.swift */,
+				B55858ED202E7C7500F4F0AB /* AdditionalInfoVC.swift */,
+				B55858F3202E8FC300F4F0AB /* User.swift */,
 			);
 			path = Swollmeights;
 			sourceTree = "<group>";
@@ -134,13 +172,22 @@
 		B53F956620087A4A00C2C3B7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B55858F1202E8DB500F4F0AB /* icons8-delete-100-2.png */,
+				B55858EF202E8D3000F4F0AB /* icons8-heart-outline-filled-100.png */,
+				B55858EB202E636C00F4F0AB /* icons8-cancel-100.png */,
+				B55858E7202E5AA700F4F0AB /* icons8-undo-100.png */,
+				B55858E1202E3A7900F4F0AB /* icons8-facebook-520.png */,
+				B55858DF202E3A7500F4F0AB /* icons8-google-plus-528.png */,
+				B55858E0202E3A7800F4F0AB /* icons8-twitter-520.png */,
+				B55858DD202D3CA400F4F0AB /* contacts.png */,
+				B55858DB202D352000F4F0AB /* icons8-edit-500.png */,
+				B55858D5202D297000F4F0AB /* icons8-menu-50.png */,
 				B51AE562200B0A0800E2552F /* icons8-menu-48-2.png */,
 				B51AE560200B04CC00E2552F /* core.png */,
 				B51AE559200B031D00E2552F /* push.png */,
 				B51AE558200B031D00E2552F /* other.png */,
 				B51AE55A200B031E00E2552F /* arms.png */,
 				B51AE55B200B031E00E2552F /* pull.png */,
-				B51AE555200B025900E2552F /* back.png */,
 				B51AE554200B025900E2552F /* squats.png */,
 				B51AE552200B01BD00E2552F /* cardio.png */,
 				B51AE550200B019D00E2552F /* chest.png */,
@@ -200,6 +247,14 @@
 						CreatedOnToolsVersion = 9.1;
 						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -228,23 +283,33 @@
 			files = (
 				B51AE55D200B031E00E2552F /* push.png in Resources */,
 				B51AE55F200B031E00E2552F /* pull.png in Resources */,
+				B55858DE202D3CA600F4F0AB /* contacts.png in Resources */,
 				B53F955B200875FA00C2C3B7 /* LaunchScreen.storyboard in Resources */,
 				B53F9558200875FA00C2C3B7 /* Assets.xcassets in Resources */,
 				B51AE561200B04CC00E2552F /* core.png in Resources */,
 				B51AE553200B01BD00E2552F /* cardio.png in Resources */,
+				B55858E2202E3A7B00F4F0AB /* icons8-google-plus-528.png in Resources */,
 				B51AE55C200B031E00E2552F /* other.png in Resources */,
 				B53F957220089A5200C2C3B7 /* settings.png in Resources */,
+				B55858D6202D297000F4F0AB /* icons8-menu-50.png in Resources */,
 				B51AE563200B0A0900E2552F /* icons8-menu-48-2.png in Resources */,
 				B51AE54B200AB48900E2552F /* icons8-calendar-50.png in Resources */,
 				B51AE55E200B031E00E2552F /* arms.png in Resources */,
 				B53F957120089A5200C2C3B7 /* home.png in Resources */,
+				B55858EC202E636E00F4F0AB /* icons8-cancel-100.png in Resources */,
+				B55858E4202E3A7B00F4F0AB /* icons8-facebook-520.png in Resources */,
+				B55858DC202D352100F4F0AB /* icons8-edit-500.png in Resources */,
+				B55858F2202E8DB900F4F0AB /* icons8-delete-100-2.png in Resources */,
+				B55858E8202E5AAA00F4F0AB /* icons8-undo-100.png in Resources */,
 				B51AE551200B019E00E2552F /* chest.png in Resources */,
+				B55858E3202E3A7B00F4F0AB /* icons8-twitter-520.png in Resources */,
 				B53F957320089A5200C2C3B7 /* invite.png in Resources */,
 				B53F957620089B8300C2C3B7 /* location.png in Resources */,
-				B51AE557200B025900E2552F /* back.png in Resources */,
 				B53F957420089A5200C2C3B7 /* profile.png in Resources */,
 				B51AE556200B025900E2552F /* squats.png in Resources */,
 				B53F9556200875FA00C2C3B7 /* Main.storyboard in Resources */,
+				B55858D1202D1C8100F4F0AB /* GoogleService-Info.plist in Resources */,
+				B55858F0202E8D3600F4F0AB /* icons8-heart-outline-filled-100.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,11 +323,15 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Swollmeights/Pods-Swollmeights-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -280,6 +349,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Swollmeights/Pods-Swollmeights-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -316,12 +386,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				B53F9551200875FA00C2C3B7 /* AppDelegate.swift in Sources */,
+				B55858E6202E3C7500F4F0AB /* SignUpVC.swift in Sources */,
 				B53F956A20087AA600C2C3B7 /* MainVC.swift in Sources */,
 				B51AE54D200ACAD800E2552F /* LiftCell.swift in Sources */,
 				B53F956C200887AE00C2C3B7 /* MenuTableVC.swift in Sources */,
+				B55858EE202E7C7500F4F0AB /* AdditionalInfoVC.swift in Sources */,
+				B55858D8202D32AB00F4F0AB /* ProfileVC.swift in Sources */,
 				B51AE568200C6EE300E2552F /* ImageCVCell.swift in Sources */,
+				B55858F4202E8FC300F4F0AB /* User.swift in Sources */,
 				B53F9565200877DC00C2C3B7 /* SWRevealViewController.m in Sources */,
 				B51AE565200C5C9200E2552F /* FindVC.swift in Sources */,
+				B55858EA202E62B600F4F0AB /* UpdateInfoVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +535,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Swollmeights/Swollmeights.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6F6K8B7R5J;
 				INFOPLIST_FILE = Swollmeights/Info.plist;
@@ -479,6 +555,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Swollmeights/Swollmeights.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6F6K8B7R5J;
 				INFOPLIST_FILE = Swollmeights/Info.plist;

@@ -11,4 +11,12 @@ import UIKit
 class ImageCVCell: UICollectionViewCell {
     
     @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var experienceLabel: UILabel!
+    @IBOutlet weak var goalLabel: UILabel!
+   
+    @IBOutlet weak var v1: UIView!
+    @IBOutlet weak var v2: UIView!
+    
 }

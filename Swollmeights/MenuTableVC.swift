@@ -17,7 +17,7 @@ class MenuTableVC: UITableViewController {
         super.viewDidLoad()
 
         
-        tableValues = ["Home", "Find", "Messages", "Profile", "Settings", "Invite"]
+        tableValues = ["Home", "Find", "Profile", "Matches", "Invite"]
 //        imgs = [UIImage.init(named: "home.png")!,
 //            UIImage.init(named: "profile.png")!,
 //            UIImage.init(named: "location.png")!,
@@ -50,14 +50,21 @@ class MenuTableVC: UITableViewController {
             if let home = self.storyboard?.instantiateViewController(withIdentifier: "home") as? MainVC {
                 
                 self.revealViewController().setFront(home, animated: true)
-                self.revealViewController().setFrontViewPosition(FrontViewPosition.right, animated: true)
+                //self.revealViewController().setFrontViewPosition(FrontViewPosition.right, animated: true)
             }
         }
         else if indexPath.row == 1 {
            if let find = self.storyboard?.instantiateViewController(withIdentifier: "find") as? FindVC {
                 
                 self.revealViewController().setFront(find, animated: true)
-                self.revealViewController().setFrontViewPosition(FrontViewPosition.right, animated: true)
+                //self.revealViewController().setFrontViewPosition(FrontViewPosition.right, animated: true)
+            }
+        }
+        else if indexPath.row == 2 {
+            if let profile = self.storyboard?.instantiateViewController(withIdentifier: "profile") as? ProfileVC {
+                
+                self.revealViewController().setFront(profile, animated: true)
+                //self.revealViewController().setFrontViewPosition(FrontViewPosition.right, animated: true)
             }
         }
     }

@@ -7,62 +7,105 @@
 //
 
 import UIKit
+import Firebase
 
 class FindVC: UIViewController {
 
+    var currQuery : DatabaseQuery?
     @IBOutlet weak var open: UIButton!
+
+    var endIndex : Int = 8
     
+    @IBOutlet weak var matchBtn : UIButton!
+    @IBOutlet weak var noBtn : UIButton!
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    var imageStrings = [String]()
-    
-    @IBOutlet weak var btn1: UIButton!
-    @IBOutlet weak var btn2: UIButton!
+
+    var users = [User]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.revealViewController().revealToggle(animated: true)
+        retrieveUsers()
+        //self.revealViewController().revealToggle(animated: true)
         
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = UIColor.clear
         
-        imageStrings = ["IMG-6709.PNG", "IMG-7211.JPG"]
+        self.noBtn.layer.cornerRadius = 7.0
+        self.matchBtn.layer.cornerRadius = 7.0
         
-        btn1.layer.cornerRadius = 4.0
-        btn1.clipsToBounds = false
-        btn2.layer.cornerRadius = 4.0
-        btn2.clipsToBounds = false
+        self.noBtn.layer.borderColor = UIColor.white.cgColor
+        self.noBtn.layer.borderWidth = 1.0
         
-        let gradient = CAGradientLayer()
+        self.matchBtn.layer.borderColor = UIColor.white.cgColor
+        self.matchBtn.layer.borderWidth = 1.0
         
-        gradient.frame = view.bounds
-        gradient.colors = [UIColor.init(red: 46/255, green: 47/255, blue: 50/255, alpha: 0.95).cgColor, UIColor.init(red: 92/255, green: 94/255, blue: 102/255, alpha: 0.8).cgColor]
-        
-        self.view.layer.insertSublayer(gradient, at: 0)
+        self.matchBtn.clipsToBounds = true
+        self.noBtn.clipsToBounds = true
+    
         
         open.addTarget(self.revealViewController(), action:#selector(SWRevealViewController.revealToggle(_:)), for:UIControlEvents.touchUpInside)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func retrieveUsers() {
+        
+        currQuery = Database.database().reference().child("users").queryLimited(toFirst: UInt(endIndex))
+        
+        currQuery?.observe(.childAdded, with: { snapshot in
+            
+            
+            if let element = snapshot.value as? [String: AnyObject] {
+                
+                let user = User()
+                if let n = element["full name"] as? String, let uid = element["uid"] as? String, let pti = element["pathToImage"] as? String, let e = element["experience"] as? Int, let a = element["age"] as? Int, let b = element["bio"] as? String, let g = element["fitnessGoal"] as? String {
+                    user.name = n
+                    user.userID = uid
+                    user.pathToImage = pti
+                    user.exp = e
+                    user.age = a
+                    user.bio = b
+                    user.goals = g
+                    
+                    self.users.append(user)
+                    self.collectionView.reloadData()
+                }
+            }
+        })
     }
-    */
-
+    
+    
+    @IBAction func matchPressed(_ sender: UIButton) {
+        endIndex = endIndex+1
+        
+        let ref = Database.database().reference()
+        let uid = Auth.auth().currentUser?.uid
+        
+        guard users.count != 0 else {return}
+        let feed = ["full name" : users[0].name,
+                    "age" : users[0].age,
+        "pathToImage" : users[0].pathToImage,
+        "uid" : users[0].userID] as! [String:Any]
+        ref.child("matches").child(uid!).child(users[0].userID).updateChildValues(feed)
+        
+        users.remove(at: 0)
+        collectionView.reloadData()
+    }
+    
+    @IBAction func skipPressed(_ sender: UIButton) {
+        users.remove(at: 0)
+        collectionView.reloadData()
+    }
+    
+    
+    
+    
+    
 }
+    
 
 extension FindVC : UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -72,14 +115,21 @@ extension FindVC : UICollectionViewDataSource, UICollectionViewDelegate {
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imageStrings.count
+        return users.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ImageCVCell
         
         cell.backgroundColor = UIColor.clear
-        cell.imgView.image = UIImage.init(named: imageStrings[indexPath.row])
+        cell.imgView.downloadImage(from: users[indexPath.row].pathToImage)
+        
+        cell.nameLabel.text = users[indexPath.row].name
+        cell.ageLabel.text =
+            "\(users[indexPath.row].age)"
+        cell.experienceLabel.text = "\(users[indexPath.row].exp)"
+        cell.goalLabel.text = users[indexPath.row].goals
+        
         return cell
     }
     

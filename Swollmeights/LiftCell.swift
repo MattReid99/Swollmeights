@@ -22,7 +22,7 @@ class LiftCell: UICollectionViewCell {
         //self.layer.borderColor = UIColor.init(red: 71/255, green: 72/255, blue: 72/255, alpha: 0.2).cgColor
         self.layer.cornerRadius = 4.0
         self.clipsToBounds = false
-        self.layer.backgroundColor = UIColor.init(red: 71/255, green: 72/255, blue: 72/255, alpha: 0.1).cgColor
+        //self.layer.backgroundColor = UIColor.init(red: 71/255, green: 72/255, blue: 72/255, alpha: 0.1).cgColor
         self.alpha = 1.0
     }
     
