@@ -1,7 +1,7 @@
 //
 //  MenuTableVC.swift
 //  Swollmeights
-//
+//r
 //  Created by Matthew Reid on 1/12/18.
 //  Copyright © 2018 Matthew Reid. All rights reserved.
 //
@@ -65,6 +65,18 @@ class MenuTableVC: UITableViewController {
                 
                 self.revealViewController().setFront(profile, animated: true)
                 //self.revealViewController().setFrontViewPosition(FrontViewPosition.right, animated: true)
+            }
+        }
+        else if indexPath.row == 3 {
+            if let matches = self.storyboard?.instantiateViewController(withIdentifier: "matches") as? MatchesVC {
+                
+                self.revealViewController().setFront(matches, animated: true)
+                //self.revealViewController().setFrontViewPosition(FrontViewPosition.right, animated: true)
+            }
+        }
+        else if indexPath.row == 4 {
+            if let invFriends = self.storyboard?.instantiateViewController(withIdentifier: "invite") as? InviteFriendsVC {
+                self.revealViewController().setFront(invFriends, animated: true)
             }
         }
     }

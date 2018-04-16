@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B51858A22083452800F11EC3 /* jsonMap.txt in Resources */ = {isa = PBXBuildFile; fileRef = B51858A12083452800F11EC3 /* jsonMap.txt */; };
+		B51858A42084493E00F11EC3 /* icons8-marker-48.png in Resources */ = {isa = PBXBuildFile; fileRef = B51858A32084493C00F11EC3 /* icons8-marker-48.png */; };
+		B51858A620847D3600F11EC3 /* icons8-marker-90.png in Resources */ = {isa = PBXBuildFile; fileRef = B51858A520847D3500F11EC3 /* icons8-marker-90.png */; };
 		B51AE54B200AB48900E2552F /* icons8-calendar-50.png in Resources */ = {isa = PBXBuildFile; fileRef = B51AE54A200AB48800E2552F /* icons8-calendar-50.png */; };
 		B51AE54D200ACAD800E2552F /* LiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51AE54C200ACAD800E2552F /* LiftCell.swift */; };
 		B51AE551200B019E00E2552F /* chest.png in Resources */ = {isa = PBXBuildFile; fileRef = B51AE550200B019D00E2552F /* chest.png */; };
@@ -20,6 +23,12 @@
 		B51AE563200B0A0900E2552F /* icons8-menu-48-2.png in Resources */ = {isa = PBXBuildFile; fileRef = B51AE562200B0A0800E2552F /* icons8-menu-48-2.png */; };
 		B51AE565200C5C9200E2552F /* FindVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51AE564200C5C9200E2552F /* FindVC.swift */; };
 		B51AE568200C6EE300E2552F /* ImageCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51AE567200C6EE300E2552F /* ImageCVCell.swift */; };
+		B51BA5872050DCB400117A9B /* swollmeightsIcon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B51BA5862050DCB300117A9B /* swollmeightsIcon.jpg */; };
+		B51BA5892050DD5300117A9B /* InviteFriendsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51BA5882050DD5300117A9B /* InviteFriendsVC.swift */; };
+		B520967F207FBD60005AB0F4 /* NoUsersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B520967E207FBD60005AB0F4 /* NoUsersVC.swift */; };
+		B5209685208106F0005AB0F4 /* NoMatchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5209684208106F0005AB0F4 /* NoMatchesView.swift */; };
+		B52096872082A0FC005AB0F4 /* FindView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B52096862082A0FC005AB0F4 /* FindView.xib */; };
+		B52096892083245A005AB0F4 /* JSONMapData.strings in Resources */ = {isa = PBXBuildFile; fileRef = B52096882083245A005AB0F4 /* JSONMapData.strings */; };
 		B53F9551200875FA00C2C3B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53F9550200875FA00C2C3B7 /* AppDelegate.swift */; };
 		B53F9556200875FA00C2C3B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B53F9554200875FA00C2C3B7 /* Main.storyboard */; };
 		B53F9558200875FA00C2C3B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B53F9557200875FA00C2C3B7 /* Assets.xcassets */; };
@@ -48,12 +57,20 @@
 		B55858F0202E8D3600F4F0AB /* icons8-heart-outline-filled-100.png in Resources */ = {isa = PBXBuildFile; fileRef = B55858EF202E8D3000F4F0AB /* icons8-heart-outline-filled-100.png */; };
 		B55858F2202E8DB900F4F0AB /* icons8-delete-100-2.png in Resources */ = {isa = PBXBuildFile; fileRef = B55858F1202E8DB500F4F0AB /* icons8-delete-100-2.png */; };
 		B55858F4202E8FC300F4F0AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55858F3202E8FC300F4F0AB /* User.swift */; };
-		ED695FA6AA9DB51728E57011 /* Pods_Swollmeights.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC68A991F7D0E24AA727AA7E /* Pods_Swollmeights.framework */; };
+		B5E88E68203CB9F300D7C78C /* MatchesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E88E67203CB9F300D7C78C /* MatchesVC.swift */; };
+		B5E88E6B203CBFA000D7C78C /* MatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E88E6A203CBFA000D7C78C /* MatchCell.swift */; };
+		B5E88E6D203CEF4D00D7C78C /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E88E6C203CEF4D00D7C78C /* ConversationViewController.swift */; };
+		B5E88E6F203D193800D7C78C /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E88E6E203D193800D7C78C /* Message.swift */; };
+		B5FFD7D42069474B00080A51 /* ViewProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FFD7D32069474B00080A51 /* ViewProfileVC.swift */; };
+		FC97E494982C470D2B2702D3 /* Pods_Swollmeights.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0A2EE1FC2E01F364D80A647 /* Pods_Swollmeights.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		716BFED3E9C203E29EEC45FF /* Pods-Swollmeights.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swollmeights.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swollmeights/Pods-Swollmeights.release.xcconfig"; sourceTree = "<group>"; };
 		B18F90637D3B1926D5E269A9 /* Pods-Swollmeights.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swollmeights.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swollmeights/Pods-Swollmeights.debug.xcconfig"; sourceTree = "<group>"; };
+		B51858A12083452800F11EC3 /* jsonMap.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = jsonMap.txt; sourceTree = "<group>"; };
+		B51858A32084493C00F11EC3 /* icons8-marker-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-marker-48.png"; sourceTree = "<group>"; };
+		B51858A520847D3500F11EC3 /* icons8-marker-90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-marker-90.png"; sourceTree = "<group>"; };
 		B51AE54A200AB48800E2552F /* icons8-calendar-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-calendar-50.png"; path = "../../../../Downloads/icons8-calendar-50.png"; sourceTree = "<group>"; };
 		B51AE54C200ACAD800E2552F /* LiftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiftCell.swift; sourceTree = "<group>"; };
 		B51AE550200B019D00E2552F /* chest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chest.png; path = ../../../../Downloads/chest.png; sourceTree = "<group>"; };
@@ -67,13 +84,18 @@
 		B51AE562200B0A0800E2552F /* icons8-menu-48-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-menu-48-2.png"; path = "../../../../Downloads/icons8-menu-48-2.png"; sourceTree = "<group>"; };
 		B51AE564200C5C9200E2552F /* FindVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindVC.swift; sourceTree = "<group>"; };
 		B51AE567200C6EE300E2552F /* ImageCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCVCell.swift; sourceTree = "<group>"; };
+		B51BA5862050DCB300117A9B /* swollmeightsIcon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = swollmeightsIcon.jpg; sourceTree = "<group>"; };
+		B51BA5882050DD5300117A9B /* InviteFriendsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteFriendsVC.swift; sourceTree = "<group>"; };
+		B520967E207FBD60005AB0F4 /* NoUsersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoUsersVC.swift; sourceTree = "<group>"; };
+		B5209684208106F0005AB0F4 /* NoMatchesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoMatchesView.swift; sourceTree = "<group>"; };
+		B52096862082A0FC005AB0F4 /* FindView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FindView.xib; sourceTree = "<group>"; };
+		B52096882083245A005AB0F4 /* JSONMapData.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = JSONMapData.strings; sourceTree = "<group>"; };
 		B53F954D200875FA00C2C3B7 /* Swollmeights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swollmeights.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B53F9550200875FA00C2C3B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B53F9555200875FA00C2C3B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B53F9557200875FA00C2C3B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B53F955A200875FA00C2C3B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B53F955C200875FA00C2C3B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B53F9562200877DB00C2C3B7 /* Swollmeights-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Swollmeights-Bridging-Header.h"; sourceTree = "<group>"; };
 		B53F9563200877DC00C2C3B7 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		B53F9564200877DC00C2C3B7 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		B53F956920087AA600C2C3B7 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -100,7 +122,12 @@
 		B55858EF202E8D3000F4F0AB /* icons8-heart-outline-filled-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-heart-outline-filled-100.png"; path = "../../../../Downloads/icons8-heart-outline-filled-100.png"; sourceTree = "<group>"; };
 		B55858F1202E8DB500F4F0AB /* icons8-delete-100-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-delete-100-2.png"; path = "../../../../Downloads/icons8-delete-100-2.png"; sourceTree = "<group>"; };
 		B55858F3202E8FC300F4F0AB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		BC68A991F7D0E24AA727AA7E /* Pods_Swollmeights.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swollmeights.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5E88E67203CB9F300D7C78C /* MatchesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesVC.swift; sourceTree = "<group>"; };
+		B5E88E6A203CBFA000D7C78C /* MatchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCell.swift; sourceTree = "<group>"; };
+		B5E88E6C203CEF4D00D7C78C /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
+		B5E88E6E203D193800D7C78C /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		B5FFD7D32069474B00080A51 /* ViewProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProfileVC.swift; sourceTree = "<group>"; };
+		E0A2EE1FC2E01F364D80A647 /* Pods_Swollmeights.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swollmeights.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED695FA6AA9DB51728E57011 /* Pods_Swollmeights.framework in Frameworks */,
+				FC97E494982C470D2B2702D3 /* Pods_Swollmeights.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,7 +145,7 @@
 		530575D2ACA389C059C8BFF7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BC68A991F7D0E24AA727AA7E /* Pods_Swollmeights.framework */,
+				E0A2EE1FC2E01F364D80A647 /* Pods_Swollmeights.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -144,6 +171,7 @@
 		B53F954F200875FA00C2C3B7 /* Swollmeights */ = {
 			isa = PBXGroup;
 			children = (
+				B51858A12083452800F11EC3 /* jsonMap.txt */,
 				B55858D2202D249700F4F0AB /* Swollmeights.entitlements */,
 				B55858D0202D1C8100F4F0AB /* GoogleService-Info.plist */,
 				B53F9564200877DC00C2C3B7 /* SWRevealViewController.h */,
@@ -154,7 +182,6 @@
 				B53F9557200875FA00C2C3B7 /* Assets.xcassets */,
 				B53F9559200875FA00C2C3B7 /* LaunchScreen.storyboard */,
 				B53F955C200875FA00C2C3B7 /* Info.plist */,
-				B53F9562200877DB00C2C3B7 /* Swollmeights-Bridging-Header.h */,
 				B53F956920087AA600C2C3B7 /* MainVC.swift */,
 				B53F956B200887AE00C2C3B7 /* MenuTableVC.swift */,
 				B51AE54C200ACAD800E2552F /* LiftCell.swift */,
@@ -165,6 +192,16 @@
 				B55858E9202E62B600F4F0AB /* UpdateInfoVC.swift */,
 				B55858ED202E7C7500F4F0AB /* AdditionalInfoVC.swift */,
 				B55858F3202E8FC300F4F0AB /* User.swift */,
+				B5E88E67203CB9F300D7C78C /* MatchesVC.swift */,
+				B5E88E6A203CBFA000D7C78C /* MatchCell.swift */,
+				B5E88E6C203CEF4D00D7C78C /* ConversationViewController.swift */,
+				B5E88E6E203D193800D7C78C /* Message.swift */,
+				B51BA5882050DD5300117A9B /* InviteFriendsVC.swift */,
+				B5FFD7D32069474B00080A51 /* ViewProfileVC.swift */,
+				B520967E207FBD60005AB0F4 /* NoUsersVC.swift */,
+				B5209684208106F0005AB0F4 /* NoMatchesView.swift */,
+				B52096862082A0FC005AB0F4 /* FindView.xib */,
+				B52096882083245A005AB0F4 /* JSONMapData.strings */,
 			);
 			path = Swollmeights;
 			sourceTree = "<group>";
@@ -172,6 +209,9 @@
 		B53F956620087A4A00C2C3B7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B51858A520847D3500F11EC3 /* icons8-marker-90.png */,
+				B51858A32084493C00F11EC3 /* icons8-marker-48.png */,
+				B51BA5862050DCB300117A9B /* swollmeightsIcon.jpg */,
 				B55858F1202E8DB500F4F0AB /* icons8-delete-100-2.png */,
 				B55858EF202E8D3000F4F0AB /* icons8-heart-outline-filled-100.png */,
 				B55858EB202E636C00F4F0AB /* icons8-cancel-100.png */,
@@ -291,6 +331,7 @@
 				B55858E2202E3A7B00F4F0AB /* icons8-google-plus-528.png in Resources */,
 				B51AE55C200B031E00E2552F /* other.png in Resources */,
 				B53F957220089A5200C2C3B7 /* settings.png in Resources */,
+				B51858A620847D3600F11EC3 /* icons8-marker-90.png in Resources */,
 				B55858D6202D297000F4F0AB /* icons8-menu-50.png in Resources */,
 				B51AE563200B0A0900E2552F /* icons8-menu-48-2.png in Resources */,
 				B51AE54B200AB48900E2552F /* icons8-calendar-50.png in Resources */,
@@ -299,8 +340,12 @@
 				B55858EC202E636E00F4F0AB /* icons8-cancel-100.png in Resources */,
 				B55858E4202E3A7B00F4F0AB /* icons8-facebook-520.png in Resources */,
 				B55858DC202D352100F4F0AB /* icons8-edit-500.png in Resources */,
+				B51BA5872050DCB400117A9B /* swollmeightsIcon.jpg in Resources */,
 				B55858F2202E8DB900F4F0AB /* icons8-delete-100-2.png in Resources */,
 				B55858E8202E5AAA00F4F0AB /* icons8-undo-100.png in Resources */,
+				B52096872082A0FC005AB0F4 /* FindView.xib in Resources */,
+				B51858A22083452800F11EC3 /* jsonMap.txt in Resources */,
+				B51858A42084493E00F11EC3 /* icons8-marker-48.png in Resources */,
 				B51AE551200B019E00E2552F /* chest.png in Resources */,
 				B55858E3202E3A7B00F4F0AB /* icons8-twitter-520.png in Resources */,
 				B53F957320089A5200C2C3B7 /* invite.png in Resources */,
@@ -308,6 +353,7 @@
 				B53F957420089A5200C2C3B7 /* profile.png in Resources */,
 				B51AE556200B025900E2552F /* squats.png in Resources */,
 				B53F9556200875FA00C2C3B7 /* Main.storyboard in Resources */,
+				B52096892083245A005AB0F4 /* JSONMapData.strings in Resources */,
 				B55858D1202D1C8100F4F0AB /* GoogleService-Info.plist in Resources */,
 				B55858F0202E8D3600F4F0AB /* icons8-heart-outline-filled-100.png in Resources */,
 			);
@@ -326,6 +372,8 @@
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -333,6 +381,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,14 +437,22 @@
 			files = (
 				B53F9551200875FA00C2C3B7 /* AppDelegate.swift in Sources */,
 				B55858E6202E3C7500F4F0AB /* SignUpVC.swift in Sources */,
+				B5E88E6D203CEF4D00D7C78C /* ConversationViewController.swift in Sources */,
 				B53F956A20087AA600C2C3B7 /* MainVC.swift in Sources */,
 				B51AE54D200ACAD800E2552F /* LiftCell.swift in Sources */,
 				B53F956C200887AE00C2C3B7 /* MenuTableVC.swift in Sources */,
 				B55858EE202E7C7500F4F0AB /* AdditionalInfoVC.swift in Sources */,
 				B55858D8202D32AB00F4F0AB /* ProfileVC.swift in Sources */,
+				B51BA5892050DD5300117A9B /* InviteFriendsVC.swift in Sources */,
 				B51AE568200C6EE300E2552F /* ImageCVCell.swift in Sources */,
 				B55858F4202E8FC300F4F0AB /* User.swift in Sources */,
+				B5FFD7D42069474B00080A51 /* ViewProfileVC.swift in Sources */,
 				B53F9565200877DC00C2C3B7 /* SWRevealViewController.m in Sources */,
+				B5E88E68203CB9F300D7C78C /* MatchesVC.swift in Sources */,
+				B5E88E6B203CBFA000D7C78C /* MatchCell.swift in Sources */,
+				B5209685208106F0005AB0F4 /* NoMatchesView.swift in Sources */,
+				B520967F207FBD60005AB0F4 /* NoUsersVC.swift in Sources */,
+				B5E88E6F203D193800D7C78C /* Message.swift in Sources */,
 				B51AE565200C5C9200E2552F /* FindVC.swift in Sources */,
 				B55858EA202E62B600F4F0AB /* UpdateInfoVC.swift in Sources */,
 			);
@@ -475,6 +533,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "Swollmeights-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -524,6 +583,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Swollmeights-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -533,17 +593,19 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B18F90637D3B1926D5E269A9 /* Pods-Swollmeights.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Swollmeights/Swollmeights.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6F6K8B7R5J;
 				INFOPLIST_FILE = Swollmeights/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dreim.Swollmeights;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Swollmeights/Swollmeights-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Swollmeights-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -553,16 +615,18 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 716BFED3E9C203E29EEC45FF /* Pods-Swollmeights.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Swollmeights/Swollmeights.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6F6K8B7R5J;
 				INFOPLIST_FILE = Swollmeights/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dreim.Swollmeights;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Swollmeights/Swollmeights-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Swollmeights-Bridging-Header.h";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

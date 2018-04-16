@@ -10,11 +10,16 @@ import UIKit
 import GoogleMaps
 import Firebase
 import CloudKit
+//import MapKit
+import CoreLocation
+//import PlaygroundSupport
+//PlaygroundPage.current.needsIndefiniteExecution = true
 
-class MainVC: UIViewController, SWRevealViewControllerDelegate {
+class MainVC: UIViewController, SWRevealViewControllerDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var open: UIButton!
+    @IBOutlet weak var locationBtn: UIButton!
     
     var trainingDays = [String]()
     var images = [UIImage]()
@@ -26,22 +31,24 @@ class MainVC: UIViewController, SWRevealViewControllerDelegate {
     @IBOutlet weak var currDayIndicator: UIView!
     
     var calendarToggled : Bool = false
+    var location : String?
     
     @IBOutlet weak var dayLabel: UILabel!
     
-    @IBOutlet weak var d1: UIButton!
-    @IBOutlet weak var d2: UIButton!
-    @IBOutlet weak var d3: UIButton!
-    @IBOutlet weak var d4: UIButton!
-    @IBOutlet weak var d5: UIButton!
-    @IBOutlet weak var d6: UIButton!
-    @IBOutlet weak var d7: UIButton!
+    let locationManager = CLLocationManager()
+//    @IBOutlet weak var d1: UIButton!
+//    @IBOutlet weak var d2: UIButton!
+//    @IBOutlet weak var d3: UIButton!
+//    @IBOutlet weak var d4: UIButton!
+//    @IBOutlet weak var d5: UIButton!
+//    @IBOutlet weak var d6: UIButton!
+//    @IBOutlet weak var d7: UIButton!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let ref = Database.database().reference()
+
+    override func viewWillAppear(_ animated: Bool) {
         let uid = Auth.auth().currentUser?.uid
+        
+        let defaults = UserDefaults.standard
         
         guard uid != nil else {
             let signUp = self.storyboard?.instantiateViewController(withIdentifier: "signUp") as! SignUpVC
@@ -49,16 +56,90 @@ class MainVC: UIViewController, SWRevealViewControllerDelegate {
             return
         }
         
+        locationBtn.layer.cornerRadius = 12
         
-        let camera = GMSCameraPosition.camera(withLatitude: 40.9312, longitude: -73.8987, zoom: 15.0)
+        
+        // Ask for Authorisation from the User.
+        
+        // For use in foreground
+        
+        // before updating database, check if user wants to use custom location
+        
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+            
+        }
+        
+        let ref = Database.database().reference()
+        
+        // if location in defaults is current, keep button state as "current location", else, upload new location, change
+        
+        
+        geocode(latitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!) { placemark, error in
+            guard let placemark = placemark, error == nil else {
+                print("error getting placemarks")
+                return }
+            // you should always update your UI in the main thread
+            DispatchQueue.main.async {
+                //  update UI here
+
+                self.location = placemark.locality!+", "+placemark.administrativeArea!
+                let feed = ["location" : self.location!]
+                ref.child("users").child(uid!).updateChildValues(feed)
+                                let defaults = UserDefaults.standard
+                                defaults.set(self.location!, forKey: "location")
+                
+//                print("city:",     placemark.locality ?? "")
+//                print("state:",    placemark.administrativeArea ?? "")
+            }
+        }
+        
+        
+        
+//        if locationManager.location != nil {
+//            fetchCountryAndCity(location: locationManager.location!) { state, city in
+//                self.cityName = city
+//                let feed = ["location" : self.cityName!] as [String:Any]
+//                ref.child("users").child(uid!).updateChildValues(feed)
+//                let defaults = UserDefaults.standard
+//                defaults.set(self.cityName!, forKey: "cityName")
+//            }
+//        }
+        
+       
+        let camera = GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!, zoom: 8.0)
         var mapView = GMSMapView.map(withFrame: mapViewFrame.frame, camera: camera)
+        
+        if let jsonMap = Bundle.main.path(forResource: "jsonMap", ofType: "txt") {
+            do {
+                let contents = try String(contentsOfFile: jsonMap)
+                do {
+                    // Set the map style by passing a valid JSON string.
+                    
+                    mapView.mapStyle = try GMSMapStyle(jsonString: contents)
+                } catch {
+                    NSLog("One or more of the map styles failed to load. \(error)")
+                }
+            }
+            catch {
+                NSLog("One or more of the map styles failed to load. \(error)")
+            }
+        }
         
         // Creates a marker in the center of the map.
         let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: 40.9312, longitude: -73.8987)
-        marker.title = "Yonkers"
-        marker.snippet = "NY"
+        
+        var markerImage = UIImage.init(named: "icons8-marker-90.png")
+        markerImage = self.imageWithImage(image: markerImage!, scaledToSize: .init(width: 40, height: 40))
+        
+        marker.position = (locationManager.location?.coordinate)!
         marker.map = mapView
+        marker.icon = markerImage!
+        marker.appearAnimation = .pop
         
         view.addSubview(mapView)
         view.sendSubview(toBack: mapView)
@@ -72,19 +153,19 @@ class MainVC: UIViewController, SWRevealViewControllerDelegate {
         
         months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
         
-        days = [d1, d2, d3, d4, d5, d6, d7]
-        
-        var counter = 0
-        
-        for elem in days {
-
-            elem.addTarget(self, action: #selector(MainVC.dayChanged), for: .touchUpInside)
-            
-            if counter != 0 {
-            elem.frame = CGRect.init(x: elem.frame.origin.x, y: days[counter-1].frame.origin.y+50, width: elem.frame.width, height: elem.frame.height)
-            }
-            counter = counter + 1
-        }
+        //        days = [d1, d2, d3, d4, d5, d6, d7]
+        //
+        //        var counter = 0
+        //
+        //        for elem in days {
+        //
+        //            elem.addTarget(self, action: #selector(MainVC.dayChanged), for: .touchUpInside)
+        //
+        //            if counter != 0 {
+        //            elem.frame = CGRect.init(x: elem.frame.origin.x, y: days[counter-1].frame.origin.y+50, width: elem.frame.width, height: elem.frame.height)
+        //            }
+        //            counter = counter + 1
+        //        }
         
         let date = Date()
         let calendar = Calendar.current
@@ -110,49 +191,76 @@ class MainVC: UIViewController, SWRevealViewControllerDelegate {
         let gradient = CAGradientLayer()
         
         gradient.frame = view.bounds
-        gradient.colors = [UIColor.init(red: 82/255, green: 150/255, blue: 213/255, alpha: 0.6).cgColor, UIColor.init(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0).cgColor]
+        gradient.colors = [UIColor.init(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0).cgColor,
+                           UIColor.init(red: 82/255, green: 150/255, blue: 213/255, alpha: 0.6).cgColor]
         
         self.view.layer.insertSublayer(gradient, at: 0)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         open.addTarget(self.revealViewController(), action:#selector(SWRevealViewController.revealToggle(_:)), for:UIControlEvents.touchUpInside)
-    self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         // Do any additional setup after loading the view.
+        ref.child("users").child(uid!).child("full name").observeSingleEvent(of: .value, with: { snapshot in
+            
+            guard snapshot.exists() else {
+                defaults.set(" ", forKey: "full name")
+                return
+            }
+            let name = snapshot.value as! String
+            defaults.set(name, forKey: "full name")
+        })
+        ref.removeAllObservers()
     }
     
-    @IBAction func showDatePressed(_ sender: UIButton) {
-        if calendarToggled {
-        for elem in days {
-            elem.isHidden = true
-            currDayIndicator.isHidden = true
-            calendarToggled = false
-            }
-        }
-        else {
-        for elem in days {
-            elem.isHidden = false
-            currDayIndicator.isHidden = false
-            calendarToggled = true
-            }
-        }
+    func geocode(latitude: Double, longitude: Double, completion: @escaping (CLPlacemark?, Error?) -> ())  {
+        CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: latitude, longitude: longitude)) { completion($0?.first, $1) }
     }
+    
+    func imageWithImage(image:UIImage, scaledToSize newSize:CGSize) -> UIImage{
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0);
+        image.draw(in: CGRect.init(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return newImage
+    }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//
+//    }
+    
+//    @IBAction func showDatePressed(_ sender: UIButton) {
+//        if calendarToggled {
+//        for elem in days {
+//            elem.isHidden = true
+//            currDayIndicator.isHidden = true
+//            calendarToggled = false
+//            }
+//        }
+//        else {
+//        for elem in days {
+//            elem.isHidden = false
+//            currDayIndicator.isHidden = false
+//            calendarToggled = true
+//            }
+//        }
+//    }
     
     
     
     
     // weekday is from 1-7,
     
-    @objc func dayChanged(_ sender: UIButton) {
-
-        currDayIndicator.alpha = 0.0
-        for elem in days {
-            if sender == elem {
-                currDayIndicator.frame = CGRect.init(x: sender.frame.origin.x, y: sender.frame.origin.y, width: currDayIndicator.frame.width, height: currDayIndicator.frame.height)
-                currDayIndicator.fadeIn(duration: 0.5)
-                let date = Date()
-                
-            }
-        }
-    }
+//    @objc func dayChanged(_ sender: UIButton) {
+//
+//        currDayIndicator.alpha = 0.0
+//        for elem in days {
+//            if sender == elem {
+//                currDayIndicator.frame = CGRect.init(x: sender.frame.origin.x, y: sender.frame.origin.y, width: currDayIndicator.frame.width, height: currDayIndicator.frame.height)
+//                currDayIndicator.fadeIn(duration: 0.5)
+//                let date = Date()
+//
+//            }
+//        }
+//    }
     
 //    override func loadView() {
 //        // Create a GMSCameraPosition that tells the map to display the
@@ -168,7 +276,6 @@ class MainVC: UIViewController, SWRevealViewControllerDelegate {
 //        marker.snippet = "NY"
 //        marker.map = mapView
 //    }
-    
 }
 
 extension MainVC : UICollectionViewDataSource, UICollectionViewDelegate
@@ -204,6 +311,18 @@ extension MainVC : UICollectionViewDataSource, UICollectionViewDelegate
         
         prevSelectedIndex = indexPath
         collectionView.reloadData()
+    }
+    
+    
+    func fetchCountryAndCity(location: CLLocation, completion: @escaping (String, String) -> ()) {
+        CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
+            if let error = error {
+                print(error)
+            } else if let country = placemarks?.first?.country,
+                let city = placemarks?.first?.locality {
+                completion(country, city)
+            }
+        }
     }
     
 }

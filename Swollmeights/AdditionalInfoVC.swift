@@ -22,9 +22,27 @@ class AdditionalInfoVC: UIViewController, UITextFieldDelegate {
     var age : Int?
     var exp : Int?
     var img : UIImage?
+    var goal : String?
+    var bio : String?
+    
+    var oldPTI : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if goal != nil {tf1.text = goal!}
+        if bio != nil {txtView.text = bio!}
+        
+        let ref = Database.database().reference()
+        let storage = Storage.storage().reference()
+        let uid = Auth.auth().currentUser?.uid
+        
+        ref.child("users").child(uid!).child("pathToImage").observeSingleEvent(of: .value, with: { snapshot in
+            
+            if snapshot.exists() {
+                self.oldPTI = snapshot.value as! String
+            }
+        })
         
         continueBtn.layer.borderColor = UIColor.white.cgColor
         continueBtn.layer.borderWidth = 2.0
@@ -57,6 +75,8 @@ class AdditionalInfoVC: UIViewController, UITextFieldDelegate {
         let uid = Auth.auth().currentUser?.uid
         let storage = Storage.storage().reference(forURL: "gs://swollmeights.appspot.com/")
         
+        if img != nil {
+        
         let data = UIImageJPEGRepresentation(img!, 0.6)
         
         let key = ref.child("users").child(uid!).key
@@ -68,7 +88,6 @@ class AdditionalInfoVC: UIViewController, UITextFieldDelegate {
                 //AppDelegate.instance().dismissActivityIndicator()
                 return
             }
-            
             
             imageRef.downloadURL(completion: { (url, error) in
                 if let url = url {
@@ -82,10 +101,24 @@ class AdditionalInfoVC: UIViewController, UITextFieldDelegate {
                     
                     ref.child("users").child(uid!).updateChildValues(feed)
                     self.updatedLabel.animateInAndOut()
-                }
-            })
-        }
+                    
+                    Storage.storage().reference().child("Images/\(uid!)")
+                    }
+                })
+            }
         uploadTask.resume()
+        }
+        
+        else {
+            let feed = ["full name" : self.name!,
+                        "age" : self.age!,
+                        "experience" : self.exp!,
+                        "bio" : self.txtView.text,
+                        "fitnessGoal" : self.tf1.text!] as [String:Any]
+            
+            ref.child("users").child(uid!).updateChildValues(feed)
+            self.updatedLabel.animateInAndOut()
+        }
     }
     
     

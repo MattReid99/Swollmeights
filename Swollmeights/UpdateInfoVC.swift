@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import Firebase
 
 class UpdateInfoVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    @IBOutlet weak var imgView: UIImageView! // non visible only used to save img
     
     @IBOutlet weak var imgBtn: UIButton!
     @IBOutlet weak var continueBtn: UIButton!
@@ -17,12 +19,16 @@ class UpdateInfoVC: UIViewController, UITextFieldDelegate, UIImagePickerControll
     @IBOutlet weak var tf2: UITextField!
     @IBOutlet weak var tf3: UITextField!
     
+    var goal : String?
+    var bio : String?
     var img : UIImage?
     var imgPicker = UIImagePickerController()
+    var pti : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        retrieveData()
         imgPicker.delegate = self
         
         continueBtn.layer.cornerRadius = 8.0
@@ -47,6 +53,36 @@ class UpdateInfoVC: UIViewController, UITextFieldDelegate, UIImagePickerControll
         self.view.layer.insertSublayer(gradient, at: 0)
     }
     
+    func retrieveData() {
+        let ref = Database.database().reference()
+        let uid = Auth.auth().currentUser?.uid
+        
+        ref.child("users").child(uid!).observeSingleEvent(of: .value, with: { snapshot in
+            guard snapshot.exists() else {return}
+            
+            if let data = snapshot.value as? [String:Any] {
+                if let n = data["full name"] as? String {
+                    self.tf1.text = n
+                }
+                if let a = data["age"] as? Int {
+                    self.tf2.text = "\(a)"
+                }
+                if let e = data["experience"] as? Int {
+                    self.tf3.text = "\(e)"
+                }
+                if let p = data["pathToImage"] as? String {
+                    self.pti = p
+                }
+                if let b = data["bio"] as? String {
+                    self.bio = b
+                
+                }
+                if let g = data["fitnessGoal"] as? String {
+                    self.goal = g
+                }
+            }
+        })
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
@@ -73,14 +109,23 @@ class UpdateInfoVC: UIViewController, UITextFieldDelegate, UIImagePickerControll
     }
     
     @IBAction func nextPressed(_ sender: UIButton) {
-        guard Int(tf2.text!) != nil, Int(tf3.text!) != nil, tf1.text != "", tf1.text != "First Name", img != nil  else {return}
+        guard Int(tf2.text!) != nil, Int(tf3.text!) != nil, tf1.text != "", tf1.text != "First Name", (img != nil || pti != nil) else {return}
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let additional = storyboard.instantiateViewController(withIdentifier: "additional") as! AdditionalInfoVC
         additional.name = tf1.text!
         additional.age = Int(tf2.text!)!
         additional.exp = Int(tf3.text!)!
-        additional.img = self.img!
+        if (img != nil) { additional.img = self.img! }
+        
+        if bio != nil {
+            additional.bio = self.bio!
+        }
+        if goal != nil {
+            additional.goal = self.goal!
+        }
+        
+        
         self.present(additional, animated: true, completion: nil)
     }
     
