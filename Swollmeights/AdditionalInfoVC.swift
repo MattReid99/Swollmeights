@@ -15,7 +15,6 @@ class AdditionalInfoVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var continueBtn: UIButton!
     @IBOutlet weak var tf1: UITextField!
     
-    
     @IBOutlet weak var txtView: UITextView!
     
     var name : String?
@@ -56,6 +55,12 @@ class AdditionalInfoVC: UIViewController, UITextFieldDelegate {
         
         self.view.layer.insertSublayer(gradient, at: 0)
     }
+    
+    @IBAction func closeBioPressed(_ sender: UIButton) {
+        txtView.endEditing(true)
+    }
+    
+    
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

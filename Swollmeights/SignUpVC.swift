@@ -43,12 +43,12 @@ class SignUpVC: UIViewController, GIDSignInUIDelegate {
         gradient.startPoint = CGPoint(x:0, y:0)
         gradient.endPoint = CGPoint(x:1, y:1)
         gradient.drawsAsynchronously = true
-        self.gradientView.layer.addSublayer(gradient)
+        //self.gradientView.layer.addSublayer(gradient)
         
         animateGradient()
         
         
-        btn1.addTarget(self, action: #selector(setupGoogleLogin), for: .touchUpInside)
+        //btn1.addTarget(self, action: #selector(setupGoogleLogin), for: .touchUpInside)
 
         
         btn1.layer.cornerRadius = 7.0
@@ -85,6 +85,31 @@ class SignUpVC: UIViewController, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().signIn()
     }
     
+    @IBAction func checkSignedIn(_ sender: UIButton) {
+        let uid = Auth.auth().currentUser?.uid
+        if uid != nil {
+            
+            let alert = UIAlertController.init(title: nil, message: "You're already logged in. Would you like to continue?", preferredStyle: .actionSheet)
+//            let newAcc = UIAlertAction.init(title: "Continue with new account", style: .default, handler: {  (action:UIAlertAction!) in
+//
+//                self.setupGoogleLogin()
+//            })
+            let sameAcc = UIAlertAction.init(title: "OK", style: .default, handler: {  (action:UIAlertAction!) in
+                
+                self.dismiss(animated: true, completion: nil)
+            })
+            let cancel = UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil)
+            //alert.addAction(newAcc)
+            alert.addAction(sameAcc)
+            alert.addAction(cancel)
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+        else {
+            setupGoogleLogin()
+        }
+    }
+    
     
     @IBAction func completed(_ sender: UIButton) {
         let uid = Auth.auth().currentUser?.uid
@@ -94,10 +119,10 @@ class SignUpVC: UIViewController, GIDSignInUIDelegate {
 
 extension SignUpVC: CAAnimationDelegate {
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        print("finished animation, didnt throw flag")
+        //print("finished animation, didnt throw flag")
         if flag {
             
-            print("switched gradient")
+            //print("switched gradient")
             gradient.colors = gradientSet[currentGradient]
             animateGradient()
         }

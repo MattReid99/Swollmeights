@@ -58,6 +58,7 @@ class MainVC: UIViewController, SWRevealViewControllerDelegate, CLLocationManage
         
         locationBtn.layer.cornerRadius = 12
         
+        writeBlockedBy()
         
         // Ask for Authorisation from the User.
         
@@ -76,39 +77,42 @@ class MainVC: UIViewController, SWRevealViewControllerDelegate, CLLocationManage
         
         let ref = Database.database().reference()
         
+        
         // if location in defaults is current, keep button state as "current location", else, upload new location, change
         
         
         geocode(latitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!) { placemark, error in
             guard let placemark = placemark, error == nil else {
-                print("error getting placemarks")
                 return }
             // you should always update your UI in the main thread
             DispatchQueue.main.async {
                 //  update UI here
 
+                if (!defaults.bool(forKey: "customLocation")) {
+                
                 self.location = placemark.locality!+", "+placemark.administrativeArea!
                 let feed = ["location" : self.location!]
                 ref.child("users").child(uid!).updateChildValues(feed)
                                 let defaults = UserDefaults.standard
                                 defaults.set(self.location!, forKey: "location")
-                
-//                print("city:",     placemark.locality ?? "")
-//                print("state:",    placemark.administrativeArea ?? "")
+                }
+                else {
+                    
+                    guard defaults.string(forKey: "location") != nil else {
+                        self.location = placemark.locality!+", "+placemark.administrativeArea!
+                        let feed = ["location" : self.location!]
+                        ref.child("users").child(uid!).updateChildValues(feed)
+                        let defaults = UserDefaults.standard
+                        defaults.set(self.location!, forKey: "location")
+                        
+                        return
+                    }
+                    
+                    self.locationBtn.setTitle("\(defaults.string(forKey: "location")!.substring(to: (defaults.string(forKey: "location")!.index(of: ","))!))", for: .normal)
+        
+                }
             }
         }
-        
-        
-        
-//        if locationManager.location != nil {
-//            fetchCountryAndCity(location: locationManager.location!) { state, city in
-//                self.cityName = city
-//                let feed = ["location" : self.cityName!] as [String:Any]
-//                ref.child("users").child(uid!).updateChildValues(feed)
-//                let defaults = UserDefaults.standard
-//                defaults.set(self.cityName!, forKey: "cityName")
-//            }
-//        }
         
        
         let camera = GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!, zoom: 8.0)
@@ -211,6 +215,67 @@ class MainVC: UIViewController, SWRevealViewControllerDelegate, CLLocationManage
         ref.removeAllObservers()
     }
     
+    @IBAction func locationBtnPressed(_ sender: UIButton) {
+        let defaults = UserDefaults.standard
+        let uid =  Auth.auth().currentUser?.uid
+        let isCustom = defaults.bool(forKey: "customLocation")
+        
+        if isCustom {
+            defaults.set(false, forKey: "customLocation")
+            locationBtn.setTitle("Your location", for: .normal)
+            
+            let ref = Database.database().reference()
+            geocode(latitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!) { placemark, error in
+                guard let placemark = placemark, error == nil else {
+                    return }
+                // you should always update your UI in the main thread
+                DispatchQueue.main.async {
+                    //  update UI here
+                        
+                        self.location = placemark.locality!+", "+placemark.administrativeArea!
+                        let feed = ["location" : self.location!]
+                        ref.child("users").child(uid!).updateChildValues(feed)
+                        let defaults = UserDefaults.standard
+                        defaults.set(self.location!, forKey: "location")
+                }
+            }
+        }
+        else {
+            
+            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+            
+            let changeLocVC = storyboard.instantiateViewController(withIdentifier: "changeLocation") as! ChangeLocationVC
+            
+            self.present(changeLocVC, animated: true, completion: nil)
+            }
+        }
+    
+    // write any users who curr user is blocked by to userdefaults
+    func writeBlockedBy() {
+        let defaults = UserDefaults.standard
+        var blockedUsers = [String]()
+        
+        if defaults.array(forKey: "blockedUsers") != nil {
+            blockedUsers = defaults.array(forKey: "blockedUsers") as! [String]
+        }
+        
+        let ref = Database.database().reference()
+        let uid = Auth.auth().currentUser?.uid
+        
+        ref.child("users").child(uid!).child("blockedBy").observeSingleEvent(of: .value, with: { snapshot in
+            
+            guard snapshot.exists() else { return }
+            
+            if let list = snapshot.value as? [String : String] {
+                for (_, elem) in list {
+                    blockedUsers.append(elem)
+                }
+            }
+            ref.removeAllObservers()
+            ref.child("users").child(uid!).child("blockedBy").removeValue()
+        })
+    }
+    
     func geocode(latitude: Double, longitude: Double, completion: @escaping (CLPlacemark?, Error?) -> ())  {
         CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: latitude, longitude: longitude)) { completion($0?.first, $1) }
     }
@@ -261,21 +326,6 @@ class MainVC: UIViewController, SWRevealViewControllerDelegate, CLLocationManage
 //            }
 //        }
 //    }
-    
-//    override func loadView() {
-//        // Create a GMSCameraPosition that tells the map to display the
-//        // coordinate -33.86,151.20 at zoom level 6.
-//
-//        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
-//        var mapView = GMSMapView.map(withFrame: CGRect.init(x: 32, y: 172, width: 310, height: 298), camera: camera)
-//
-//        // Creates a marker in the center of the map.
-//        let marker = GMSMarker()
-//        marker.position = CLLocationCoordinate2D(latitude: 40.9312, longitude: 73.8987)
-//        marker.title = "Yonkers"
-//        marker.snippet = "NY"
-//        marker.map = mapView
-//    }
 }
 
 extension MainVC : UICollectionViewDataSource, UICollectionViewDelegate
@@ -293,12 +343,19 @@ extension MainVC : UICollectionViewDataSource, UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! LiftCell
         
-        cell.selectionIndicator.alpha = 0.0
+        let indicators = [cell.selectionIndicator, cell.topIndicator, cell.leftIndicator, cell.rightIndicator]
+        
+        for elem in indicators {
+            elem?.alpha = 0
+        }
+        
         cell.layoutSubviews()
         cell.dayLabel.text = trainingDays[indexPath.row]
         
         if prevSelectedIndex == indexPath {
-            cell.selectionIndicator.fadeIn(duration: 0.5)
+            for elem in indicators {
+                elem?.fadeIn(duration: 0.4)
+            }
         }
         
         return cell

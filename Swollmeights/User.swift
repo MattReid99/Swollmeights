@@ -17,5 +17,6 @@ class User : NSObject
     var age: Int = 0
     var bio : String = ""
     var goals : String = ""
+    var numReports : Int = 0
 }
 

@@ -12,7 +12,7 @@ import Firebase
 class ProfileVC: UIViewController {
     
     
-    @IBOutlet weak var bioLabel: UILabel!
+    @IBOutlet weak var txtView : UITextView!
     @IBOutlet weak var updateProfLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var editImgView: UIImageView!
@@ -21,9 +21,15 @@ class ProfileVC: UIViewController {
     
     @IBOutlet weak var yearsLabel: UILabel!
     
-    @IBOutlet weak var fitnessGoalLabel: UILabel!
-    
     @IBOutlet weak var imageDisplay: UIImageView!
+    @IBOutlet weak var bioOverlay: UIView!
+    @IBOutlet weak var goalOverlay: UIView!
+    
+    
+    var fitnessGoalTxt : String?
+    var bioTxt : String?
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,12 +48,17 @@ class ProfileVC: UIViewController {
                 
                 self.nameLabel.text = name
                 self.ageLabel.text = "\(age)"
-                self.fitnessGoalLabel.text = fitnessGoal
+                self.fitnessGoalTxt = fitnessGoal
                 self.yearsLabel.text = "\(years)"
                 self.imageDisplay.downloadImage(from: imagePath)
                 if let bio = data["bio"] as? String {
-                    self.bioLabel.text = bio
+                    self.bioTxt = bio
                 }
+                self.txtView.text = self.fitnessGoalTxt!
+                
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.goalOverlay.alpha = 0.4
+                })
             }
             else {
                 self.updateProfLabel.animateInAndOut()
@@ -61,6 +72,66 @@ class ProfileVC: UIViewController {
                 open.addTarget(self.revealViewController(), action:#selector(SWRevealViewController.revealToggle(_:)), for:UIControlEvents.touchUpInside)
        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
+    
+    
+    @IBAction func signOutPressed(_ sender: UIButton) {
+        
+        let alert = UIAlertController.init(title: "Sign out?", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction.init(title: "Ok", style: .default, handler: { (action:UIAlertAction!) in
+            
+            let defaults = UserDefaults.standard
+            defaults.set(nil, forKey: "uid")
+            defaults.set(nil, forKey: "full name")
+            defaults.set(nil, forKey: "location")
+            defaults.set(nil, forKey: "customLocation")
+            defaults.set(nil, forKey: "GoogleIDToken")
+            defaults.set(nil, forKey: "blockedUsers")
+            
+            let main = UIStoryboard.init(name: "Main", bundle: nil)
+            let signUpVC = main.instantiateViewController(withIdentifier: "signUp") as! SignUpVC
+            
+            do {
+                try Auth.auth().signOut()
+                print("sign out successful")
+            }
+            catch {
+                print("sign out failed")
+            }
+            
+            self.present(signUpVC, animated: true, completion: nil)
+        }))
+        
+        alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func bioPressed(_ sender: UIButton) {
+        UIView.animate(withDuration: 1.0, animations: {
+            self.bioOverlay.alpha = 0.4
+        })
+        UIView.animate(withDuration: 1.0, animations: {
+            self.goalOverlay.alpha = 0
+        })
+        guard bioTxt != nil else {
+            return
+        }
+        txtView.text = bioTxt!
+    }
+    
+    @IBAction func goalPressed(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.goalOverlay.alpha = 0.4
+        })
+        UIView.animate(withDuration: 0.5, animations: {
+            self.bioOverlay.alpha = 0
+        })
+        guard fitnessGoalTxt != nil else {
+            return
+        }
+        txtView.text = fitnessGoalTxt!
+    }
+    
 }
 
 extension UIImageView {

@@ -11,8 +11,6 @@ import Firebase
 
 class UpdateInfoVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBOutlet weak var imgView: UIImageView! // non visible only used to save img
-    
     @IBOutlet weak var imgBtn: UIButton!
     @IBOutlet weak var continueBtn: UIButton!
     @IBOutlet weak var tf1: UITextField!

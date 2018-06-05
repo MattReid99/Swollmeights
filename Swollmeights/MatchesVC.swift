@@ -18,6 +18,7 @@ class MatchesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var imgPaths = [String]()
     var names = [String]()
     var messages = [String]()
+    var isMatchReciprocated = [Bool]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,24 @@ class MatchesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         retrieveMatches()
+    }
+    
+    func areMatchesReciprocated() {
+        let ref = Database.database().reference()
+        let uid = Auth.auth().currentUser?.uid
+        
+        var counter = 0
+        for elem in uIDs {
+            
+        ref.child("matches").child(elem).child(uid!).observeSingleEvent(of: .value, with: { snapshot in
+            
+                if snapshot.exists() {
+                    self.isMatchReciprocated[counter] = true
+                }
+            })
+            tableView.reloadData()
+            ref.removeAllObservers()
+        }
     }
     
     func retrieveMatches() {
@@ -62,6 +81,7 @@ class MatchesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     self.names.append(name)
                     self.uIDs.append(id)
                     self.messages.append(" ")
+                    self.isMatchReciprocated.append(false)
                     
                     count = count + 1
                     
@@ -74,6 +94,7 @@ class MatchesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 }
             }
         })
+        self.areMatchesReciprocated()
         ref.removeAllObservers()
     }
     
@@ -99,7 +120,6 @@ class MatchesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         //cell.imgView.maskCircle(anyImage: cell.imgView.image!)
         cell.imgView.layer.cornerRadius = 45.0
         cell.imgView.clipsToBounds = true
-        
         return cell
     }
     

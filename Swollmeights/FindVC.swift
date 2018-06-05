@@ -29,13 +29,19 @@ class FindVC: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
 
     var users = [User]()
+    var name : String?
+    var pathToImage : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+
+        getUserImg()
+        
         let label = UILabel.init(frame: CGRect(x: 15, y: noUsersView.layer.frame.minY, width: noUsersView.layer.frame.width - 15, height: noUsersView.layer.frame.height / 2))
         let btn = UIButton.init(frame: noUsersView.frame)
         let imgView = UIImageView.init(frame: CGRect(x: view.frame.midX - 40, y: noUsersView.layer.frame.minY - 80, width: 80, height: 80))
+        
         
         
         
@@ -75,11 +81,26 @@ class FindVC: UIViewController {
         
         let defaults = UserDefaults.standard
         
-        guard defaults.string(forKey: "location") != nil else {return}
+        guard defaults.string(forKey: "location") != nil, defaults.string(forKey: "full name") != nil else {return}
         
             self.location = defaults.string(forKey: "location")
+            self.name = defaults.string(forKey: "full name")
         
                 self.retrieveUsers()
+    }
+    
+    func getUserImg() {
+        let ref = Database.database().reference()
+        let uid = Auth.auth().currentUser?.uid
+        
+        ref.child("users").child(uid!).child("pathToImage").observeSingleEvent(of: .value, with: { snapshot in
+            guard snapshot.exists() else {return}
+            
+            if let pti = snapshot.value as? String {
+                self.pathToImage = pti
+            }
+        })
+        ref.removeAllObservers()
     }
     
     @objc func openInvFriends() {
@@ -90,6 +111,10 @@ class FindVC: UIViewController {
     }
     
     func retrieveUsers() {
+        
+        let uid = Auth.auth().currentUser?.uid
+        let defaults = UserDefaults.standard
+        let blocked = defaults.array(forKey: "blockedUsers") as? [String]
         
         currQuery = Database.database().reference().child("users").queryOrdered(byChild: "location").queryStarting(atValue: self.location!).queryEnding(atValue: self.location!+"\u{f8ff}").queryLimited(toFirst: UInt(endIndex))
         
@@ -110,8 +135,24 @@ class FindVC: UIViewController {
                     user.bio = b
                     user.goals = g
                     
+                        if let report = element["reports"] as? Int {
+                         user.numReports = report
+                        }
+                        
+                        var userBlocked = false
+                        
+                        if blocked != nil {
+                            for elem in blocked! {
+                                if elem == user.userID {
+                                    userBlocked = true
+                                }
+                            }
+                        }
+                        
+                        if !userBlocked {
                     self.users.append(user)
                     self.collectionView.reloadData()
+                        }
                     }
                 }
                  self.collectionView.reloadData()
@@ -143,6 +184,13 @@ class FindVC: UIViewController {
         "uid" : users[0].userID,
         "message" : " "] as! [String:Any]
         ref.child("matches").child(uid!).child(users[0].userID).updateChildValues(feed)
+        
+        let feed2 = ["full name" : self.name!,
+                    "timestamp" : t1,
+                    "pathToImage" : self.pathToImage!,
+                    "uid" : uid!,
+                    "message" : " "] as! [String:Any]
+        ref.child("matches").child(users[0].userID).child(uid!).updateChildValues(feed2)
         
         users.remove(at: 0)
         collectionView.reloadData()

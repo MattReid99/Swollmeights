@@ -152,7 +152,9 @@ class ConversationViewController: JSQMessagesViewController {
             return cell
         }
         
-        cell.avatarImageView.image = img!
+        if (img != nil) {
+            cell.avatarImageView.image = img!
+        }
         
         cell.textView!.textColor = UIColor.black
         return cell
