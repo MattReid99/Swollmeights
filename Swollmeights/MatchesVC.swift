@@ -164,7 +164,7 @@ class MatchesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         conversationVC.recipientName = names[indexPath.row]
         
-        self.present(conversationVC, animated: true, completion: nil)
+        self.navigationController?.pushViewController(conversationVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

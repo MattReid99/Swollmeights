@@ -9,138 +9,92 @@
 import UIKit
 import Firebase
 
-class ChangeLocationVC: UIViewController {
+class ChangeLocationVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
-    @IBOutlet weak var didYouMeanLabel: UILabel!
+    @IBOutlet weak var searchField: UISearchBar!
+    @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var l1 : UIView!
-    @IBOutlet weak var l2 : UIView!
-    @IBOutlet weak var l3 : UIView!
-    var views = [UIView]()
-    
-    @IBOutlet weak var t1 : UILabel!
-    @IBOutlet weak var t2 : UILabel!
-    @IBOutlet weak var t3 : UILabel!
-    var labels = [UILabel]()
-    
-    @IBOutlet weak var b1 : UIButton!
-    @IBOutlet weak var b2 : UIButton!
-    @IBOutlet weak var b3 : UIButton!
-    var buttons = [UIButton]()
-    
-    @IBOutlet weak var searchField: UITextField!
-    
-    var locations = [String]()
+    var filteredData = [String]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        navigationItem.titleView = searchField
+        searchField.showsScopeBar = false // you can show/hide this dependant on your layout
+        searchField.placeholder = "Search by Location"
+        searchField.delegate = self
+        
+//        searchController.searchBar.delegate = self
+//
 
-        views.append(l1)
-        views.append(l2)
-        views.append(l3)
-        labels.append(t1)
-        labels.append(t2)
-        labels.append(t3)
-        buttons.append(b1)
-        buttons.append(b2)
-        buttons.append(b3)
+        definesPresentationContext = true
         
-        for elem in buttons {
-            elem.addTarget(self, action: #selector(locationPressed), for: .touchUpInside)
-        }
-        
+
         self.view.isUserInteractionEnabled = true
         let swipe = UIPanGestureRecognizer.init(target: self, action: #selector(backPressed))
         self.view.addGestureRecognizer(swipe)
     }
     
     
-    @IBAction func searchPressed(_ sender: UIButton) {
-        locations.removeAll()
-        
-        didYouMeanLabel.text = "No results found"
-        didYouMeanLabel.isHidden = false
-        
-        var searchTxt : String = searchField.text!
-        
-        if #available(iOS 9.0, *) {
-            searchTxt = searchTxt.localizedCapitalized
-        }
-        
-        let ref = Database.database().reference()
-        
-        var currQuery : DatabaseQuery?
-        
-              currQuery = Database.database().reference().child("users").queryOrdered(byChild: "location").queryStarting(atValue: searchTxt).queryEnding(atValue: searchTxt + "\u{f8ff}")
-        
-        var counter = 0
-        
-        currQuery?.observe(.childAdded, with: { snapshot in
-            
-            if let element = snapshot.value as? [String: AnyObject] {
-                
-                if let temp = element["location"] as? String {
-                   
-                    guard counter < 3 else {
-                       return }
-                    
-                    self.locations.append(temp)
-                    counter = counter + 1
-                    self.updateResults()
-                }
-            }
-        })
-    }
-    
-    @objc func locationPressed(_ sender: UIButton) {
-        let max = locations.count
-        var counter = 0
-        
-        while counter < max {
-            if sender == buttons[counter] {
-                let defaults = UserDefaults.standard
-                defaults.set(true, forKey: "customLocation")
-                defaults.set(locations[counter], forKey: "location")
-                self.dismiss(animated: true, completion: nil)
-            }
-            counter = counter + 1
-        }
-    }
-    
-    func updateResults() {
-        var set = Set(locations)
-        locations.removeAll()
-        
-        for val in set {
-            locations.append(val)
-        }
-        
-        let max = locations.count
-        var c1 = 0
-        
-        while c1 < max {
-            views[c1].isHidden = true
-            labels[c1].isHidden = true
-            buttons[c1].isHidden = true
-            c1 = c1+1
-        }
-        
-        didYouMeanLabel.isHidden = false
-        didYouMeanLabel.text = "Did you mean"
-        var counter = 0
-        
-        while counter < max {
-            views[counter].isHidden = false
-            labels[counter].isHidden = false
-            labels[counter].text = locations[counter]
-            buttons[counter].isHidden = false
-            counter = counter+1
-        }
-        
-    }
-    
     @objc @IBAction func backPressed(_sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let selection = filteredData[indexPath.row]
+        
+        let defaults = UserDefaults.standard
+        
+        if let indexOf = Locations.cityNames.index(where: { $0 == "\(selection)" }) {
+            //defaults.set(Locations.counties[indexOf], forKey: "location")
+            defaults.set(true, forKey: "customLocation")
+            let temp = Locations.counties[indexOf].replacingOccurrences(of: "\"", with: "")
+            defaults.set(temp, forKey: "location")
+            
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+
+        filteredData = Locations.cityNames.filter({( str : String) -> Bool in
+            return str.lowercased().contains(searchText.lowercased())
+        })
+        tableView.reloadData()
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            if 20 < filteredData.count {
+                return 20
+            }
+            return filteredData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let str: String
+        
+        str = filteredData[indexPath.row].replacingOccurrences(of: "\"", with: "")
+//        } else {
+//            str = Locations.cityNames[indexPath.row]
+//        }
+        cell.textLabel?.text = str
+        
+        return cell
+    }
+    
 }
+//
+//extension ChangeLocationVC: UISearchResultsUpdating {
+//    // MARK: - UISearchResultsUpdating Delegate
+////    func updateSearchResults(for searchController: UISearchController) {
+////        // TODO
+////    }
+//}
+

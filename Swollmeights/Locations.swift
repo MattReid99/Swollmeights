@@ -10,6 +10,10 @@ import Foundation
 
 class Locations {
     
+    static var arrData = [[String]]()
+    //static var dict = [[String: String]()]
+    static var cityNames = [String]()
+    static var counties = [String]()
     
     static func readDataFromCSV(fileName:String, fileType: String)-> String!{
         guard let filepath = Bundle.main.path(forResource: fileName, ofType: fileType)
@@ -38,69 +42,50 @@ class Locations {
 
     static func csv(data: String) -> [[String]] {
         var result: [[String]] = []
-        let rows = data.components(separatedBy: "\n")
-        for row in rows {
-            let columns = row.components(separatedBy: ";")
-            result.append(columns)
-        }
-        return result
+//        let rows = data.components(separatedBy: "\n")
+//        for row in rows {
+//            let columns = row.components(separatedBy: ";")
+//            result.append(columns)
+//        }
+        //return result
+        let parsedCSV: [[String]] = data.components(separatedBy: "\n").map{ $0.components(separatedBy: ",") }
+
+        return parsedCSV
     }
     
-    static func printData() {
+    static func getLocationData() {
+        
         var data = readDataFromCSV(fileName: "locations", fileType: ".txt")
         data = cleanRows(file: data!)
-        let csvRows = csv(data: data!)
-    print(csvRows[1][1]) //UXM n. 166/167.
+        arrData = csv(data: data!)
     }
     
-//    var data:[[String:String]] = []
-//    var columnTitles:[String] = []
-//
-//func cleanRows(file:String)->String{
-//    var cleanFile = file
-//    cleanFile = cleanFile.replacingOccurrences(of: "\r", with: "\n")
-//    cleanFile = cleanFile.replacingOccurrences(of: "\n\n", with: "\n")
-//    return cleanFile
-//}
-//
-//func getStringFieldsForRow(row:String, delimiter:String)-> [String]{
-//    return row.components(separatedBy: delimiter)
-//}
-//
-//func readDataFromFile(file:String)-> String!{
-//    guard let filepath = Bundle.mainBundle.pathForResource(file, ofType: "txt")
-//        else {
-//            return nil
-//    }
-//    do {
-//        let contents = try String(contentsOfFile: filepath, usedEncoding: nil)
-//        return contents
-//    } catch {
-//        print ("File Read Error")
-//        return nil
-//    }
-//}
-//
-//func convertCSV(file:String){
-//    let rows = cleanRows(file: file).components(separatedBy: "\n")
-//    if rows.count > 0 {
-//        data = []
-//        columnTitles = getStringFieldsForRow(row: rows.first!,delimiter:",")
-//        for row in rows{
-//            let fields = getStringFieldsForRow(row: row,delimiter: ",")
-//            if fields.count != columnTitles.count {continue}
-//            var dataRow = [String:String]()
-//            for (index,field) in fields.enumerate(){
-//                let fieldName = columnTitles[index]
-//                dataRow[fieldName] = field
-//                }
-//            data += [dataRow]
-//            }
-//        } else {
-//        print("No data in file")
-//        }
-//    }
+    static func getCityNames() {
+        getLocationData()
+        
+        let defaults = UserDefaults.standard
+        
+        for i in 1...arrData.count-2 {
+            cityNames.append("\(arrData[i][0]), \(arrData[i][1])")
+            counties.append("\(arrData[i][2])")
+        }
+        defaults.set(cityNames, forKey: "cities")
+        defaults.set(counties, forKey: "counties")
+    }
+    
+    static func retrieveData() {
+        let defaults = UserDefaults.standard
+        
+        if (defaults.array(forKey: "counties") != nil || defaults.array(forKey: "cities") != nil) {
+            Locations.getCityNames()
+        }
+        else {
+            self.counties = defaults.array(forKey: "counties") as! [String]
+            self.cityNames = defaults.array(forKey: "cities") as! [String]
+        }
+    }
 }
+
 
 
 

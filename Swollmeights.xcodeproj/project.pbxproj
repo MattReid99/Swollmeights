@@ -61,6 +61,7 @@
 		B55858F4202E8FC300F4F0AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55858F3202E8FC300F4F0AB /* User.swift */; };
 		B5771168210D98C8000FCE46 /* locations.txt in Resources */ = {isa = PBXBuildFile; fileRef = B5771167210D98C8000FCE46 /* locations.txt */; };
 		B577116A210D9B9E000FCE46 /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5771169210D9B9E000FCE46 /* Locations.swift */; };
+		B577116C210E6093000FCE46 /* icons8-back-filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = B577116B210E608E000FCE46 /* icons8-back-filled-50.png */; };
 		B5B446E820B7830000C2A5E9 /* icons8-right-64.png in Resources */ = {isa = PBXBuildFile; fileRef = B5B446E720B782FE00C2A5E9 /* icons8-right-64.png */; };
 		B5B446EA20B7851C00C2A5E9 /* icons8-back-arrow-100.png in Resources */ = {isa = PBXBuildFile; fileRef = B5B446E920B7851A00C2A5E9 /* icons8-back-arrow-100.png */; };
 		B5E12C3E20B776BB004863BA /* icons8-settings-100.png in Resources */ = {isa = PBXBuildFile; fileRef = B5E12C3D20B776B9004863BA /* icons8-settings-100.png */; };
@@ -133,6 +134,7 @@
 		B55858F3202E8FC300F4F0AB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B5771167210D98C8000FCE46 /* locations.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = locations.txt; sourceTree = "<group>"; };
 		B5771169210D9B9E000FCE46 /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
+		B577116B210E608E000FCE46 /* icons8-back-filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-back-filled-50.png"; sourceTree = "<group>"; };
 		B5B446E720B782FE00C2A5E9 /* icons8-right-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-right-64.png"; sourceTree = "<group>"; };
 		B5B446E920B7851A00C2A5E9 /* icons8-back-arrow-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-back-arrow-100.png"; sourceTree = "<group>"; };
 		B5E12C3D20B776B9004863BA /* icons8-settings-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-settings-100.png"; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 		B53F956620087A4A00C2C3B7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B577116B210E608E000FCE46 /* icons8-back-filled-50.png */,
 				B5B446E920B7851A00C2A5E9 /* icons8-back-arrow-100.png */,
 				B5B446E720B782FE00C2A5E9 /* icons8-right-64.png */,
 				B5E12C3D20B776B9004863BA /* icons8-settings-100.png */,
@@ -342,6 +345,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B577116C210E6093000FCE46 /* icons8-back-filled-50.png in Resources */,
 				B51AE55D200B031E00E2552F /* push.png in Resources */,
 				B51AE55F200B031E00E2552F /* pull.png in Resources */,
 				B55858DE202D3CA600F4F0AB /* contacts.png in Resources */,
@@ -627,7 +631,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6F6K8B7R5J;
 				INFOPLIST_FILE = Swollmeights/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dreim.Swollmeights;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -649,7 +653,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6F6K8B7R5J;
 				INFOPLIST_FILE = Swollmeights/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dreim.Swollmeights;
 				PRODUCT_NAME = "$(TARGET_NAME)";

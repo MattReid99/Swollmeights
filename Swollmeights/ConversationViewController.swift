@@ -20,6 +20,8 @@ class ConversationViewController: JSQMessagesViewController {
     
     var img : UIImage?
     
+    @IBOutlet weak var backButton: UIButton!
+    
     lazy var outgoingBubble: JSQMessagesBubbleImage = {
         return JSQMessagesBubbleImageFactory()!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())//UIColor.init(red: 82/255, green: 150/255, blue: 213/255, alpha: 1.0))\
     }()
@@ -38,6 +40,7 @@ class ConversationViewController: JSQMessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
         self.view.isUserInteractionEnabled = true
         let swipe = UIPanGestureRecognizer.init(target: self, action: #selector(backPressed))
 //        let swipe = UITapGestureRecognizer.init(target: self, action: #selector(backPressed))
@@ -51,8 +54,10 @@ class ConversationViewController: JSQMessagesViewController {
         
         senderId = uid!
         senderDisplayName = defaults.string(forKey: "full name")
+        
+        backButton.addTarget(self, action: #selector(backPressed), for: UIControlEvents.touchUpInside)
 //
-        navigationController?.isNavigationBarHidden = false
+        //navigationController?.isNavigationBarHidden = false
 //
 //
 //        self.navigationController?.navigationItem.leftBarButtonItem = backBtn
@@ -60,10 +65,8 @@ class ConversationViewController: JSQMessagesViewController {
         
         self.senderDisplayName = defaults.string(forKey: "full name")
         
-        self.title = "Chat: \(self.senderDisplayName!)"
-        
-        
-        
+        self.title = "\(recipientName!)"
+
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         // Do any additional setup after loading the view.
@@ -103,6 +106,14 @@ class ConversationViewController: JSQMessagesViewController {
         })
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let height: CGFloat = 50 //whatever height you want to add to the existing height
+        let bounds = self.navigationController!.navigationBar.bounds
+        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + height)
+        
+    }
+    
     @objc func backPressed() {
         self.dismiss(animated: true, completion: nil)
     }
@@ -126,16 +137,11 @@ class ConversationViewController: JSQMessagesViewController {
         return messages[indexPath.item].senderId == senderId ? outgoingBubble : incomingBubble
     }
     
-    override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource!
-    {
-        print("functionm called")
-        guard img != nil else {
-            print("didnt display image because image is nil")
-            return nil}
-        
-        let avatar = JSQMessagesAvatarImageFactory.avatarImage(with: img!, diameter: 12)
-        return avatar!
-    }
+//    override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource!
+//    {
+//        let avatar = JSQMessagesAvatarImageFactory.avatarImage(with: img!, diameter: 12)
+//        return avatar!
+//    }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!) -> NSAttributedString!
     {

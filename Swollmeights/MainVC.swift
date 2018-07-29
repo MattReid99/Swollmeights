@@ -47,11 +47,18 @@ class MainVC: UIViewController, SWRevealViewControllerDelegate, CLLocationManage
 
     override func viewWillAppear(_ animated: Bool) {
         
-        Locations.printData()
+        let defaults = UserDefaults.standard
+        
+        if (defaults.array(forKey: "counties") == nil || defaults.array(forKey: "cities") == nil) {
+            Locations.getCityNames()
+        }
+        
+        if (Locations.cityNames == nil) {
+            Locations.retrieveData()
+        }
         
         let uid = Auth.auth().currentUser?.uid
         
-        let defaults = UserDefaults.standard
         
         guard uid != nil else {
             let signUp = self.storyboard?.instantiateViewController(withIdentifier: "signUp") as! SignUpVC
@@ -93,7 +100,9 @@ class MainVC: UIViewController, SWRevealViewControllerDelegate, CLLocationManage
 
                 if (!defaults.bool(forKey: "customLocation")) {
                 
-                self.location = placemark.locality!+", "+placemark.administrativeArea!
+                self.location = placemark.locality!
+                self.getLocation(cityName: self.location!)
+                    
                 let feed = ["location" : self.location!]
                 ref.child("users").child(uid!).updateChildValues(feed)
                                 let defaults = UserDefaults.standard
@@ -102,16 +111,19 @@ class MainVC: UIViewController, SWRevealViewControllerDelegate, CLLocationManage
                 else {
                     
                     guard defaults.string(forKey: "location") != nil else {
-                        self.location = placemark.locality!+", "+placemark.administrativeArea!
-                        let feed = ["location" : self.location!]
-                        ref.child("users").child(uid!).updateChildValues(feed)
-                        let defaults = UserDefaults.standard
-                        defaults.set(self.location!, forKey: "location")
+                        self.location = placemark.locality!
+                        self.getLocation(cityName: self.location!)
                         
+                        let feed = ["location" : defaults.string(forKey: "location")!]
+                        
+                        ref.child("users").child(uid!).updateChildValues(feed)
+
                         return
                     }
                     
-                    self.locationBtn.setTitle("\(defaults.string(forKey: "location")!.substring(to: (defaults.string(forKey: "location")!.index(of: ","))!))", for: .normal)
+                    ref.child("users").child(uid!).updateChildValues(["location" : defaults.string(forKey: "location")!])
+                    
+                    self.locationBtn.setTitle("\(defaults.string(forKey: "location")!)", for: .normal)
         
                 }
             }
@@ -160,26 +172,11 @@ class MainVC: UIViewController, SWRevealViewControllerDelegate, CLLocationManage
         
         months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
         
-        //        days = [d1, d2, d3, d4, d5, d6, d7]
-        //
-        //        var counter = 0
-        //
-        //        for elem in days {
-        //
-        //            elem.addTarget(self, action: #selector(MainVC.dayChanged), for: .touchUpInside)
-        //
-        //            if counter != 0 {
-        //            elem.frame = CGRect.init(x: elem.frame.origin.x, y: days[counter-1].frame.origin.y+50, width: elem.frame.width, height: elem.frame.height)
-        //            }
-        //            counter = counter + 1
-        //        }
-        
         let date = Date()
         let calendar = Calendar.current
         let year = calendar.component(.year, from: date)
         let month = calendar.component(.month, from: date)
         let day = calendar.component(.day, from: date)
-        let weekDay = calendar.component(.weekday, from: date)
         
         var dateSuffix : String = "th"
         
@@ -218,6 +215,13 @@ class MainVC: UIViewController, SWRevealViewControllerDelegate, CLLocationManage
         ref.removeAllObservers()
     }
     
+    func getLocation(cityName: String) {
+        
+        if let indexOf = Locations.cityNames.index(where: { $0 == "\(cityName)" }) {
+            self.location = Locations.counties[indexOf]
+        }
+    }
+    
     @IBAction func locationBtnPressed(_ sender: UIButton) {
         let defaults = UserDefaults.standard
         let uid =  Auth.auth().currentUser?.uid
@@ -234,8 +238,10 @@ class MainVC: UIViewController, SWRevealViewControllerDelegate, CLLocationManage
                 // you should always update your UI in the main thread
                 DispatchQueue.main.async {
                     //  update UI here
-                        
-                        self.location = placemark.locality!+", "+placemark.administrativeArea!
+                    
+                        self.location = placemark.locality!
+                        self.getLocation(cityName: placemark.locality!)
+                    
                         let feed = ["location" : self.location!]
                         ref.child("users").child(uid!).updateChildValues(feed)
                         let defaults = UserDefaults.standard
