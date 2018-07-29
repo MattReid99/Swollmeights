@@ -46,6 +46,9 @@ class MainVC: UIViewController, SWRevealViewControllerDelegate, CLLocationManage
     
 
     override func viewWillAppear(_ animated: Bool) {
+        
+        Locations.printData()
+        
         let uid = Auth.auth().currentUser?.uid
         
         let defaults = UserDefaults.standard

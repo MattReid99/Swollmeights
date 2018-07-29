@@ -202,17 +202,6 @@ class FindVC: UIViewController {
         users.remove(at: 0)
         collectionView.reloadData()
     }
-    
-//    func fetchCountryAndCity(location: CLLocation, completion: @escaping (String, String) -> ()) {
-//        CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
-//            if let error = error {
-//
-//            } else if let country = placemarks?.first?.country,
-//                let city = placemarks?.first?.locality {
-//                completion(country, city)
-//            }
-//        }
-//    }
 }
 
 extension FindVC : UICollectionViewDataSource, UICollectionViewDelegate {

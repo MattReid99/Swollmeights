@@ -61,7 +61,11 @@ class ChangeLocationVC: UIViewController {
         didYouMeanLabel.text = "No results found"
         didYouMeanLabel.isHidden = false
         
-        let searchTxt = searchField.text!
+        var searchTxt : String = searchField.text!
+        
+        if #available(iOS 9.0, *) {
+            searchTxt = searchTxt.localizedCapitalized
+        }
         
         let ref = Database.database().reference()
         
