@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-import GoogleMaps
+//import GoogleMaps
 
 class FindVC: UIViewController {
 
@@ -17,7 +17,7 @@ class FindVC: UIViewController {
     
     var currQuery : DatabaseQuery?
     @IBOutlet weak var open: UIButton!
-
+    
     let locationManager = CLLocationManager()
     
     var endIndex : Int = 8
@@ -234,6 +234,9 @@ extension FindVC : UICollectionViewDataSource, UICollectionViewDelegate {
             "\(users[indexPath.row].age)"
         cell.experienceLabel.text = "\(users[indexPath.row].exp)"
         cell.goalLabel.text = users[indexPath.row].goals
+        cell.blankView?.layer.addBorder(edge: .right, color: .gray, thickness: 0.3)
+        cell.blankView?.layer.addBorder(edge: .left, color: .gray, thickness: 0.3)
+        
         
         return cell
     }
@@ -247,3 +250,29 @@ extension FindVC : UICollectionViewDataSource, UICollectionViewDelegate {
         self.present(viewProfVC, animated: true, completion: nil)
     }
 }
+
+extension CALayer {
+    
+    func addBorder(edge: UIRectEdge, color: UIColor, thickness: CGFloat) {
+        
+        let border = CALayer()
+        
+        switch edge {
+        case .top:
+            border.frame = CGRect(x: 0, y: 0, width: frame.width, height: thickness)
+        case .bottom:
+            border.frame = CGRect(x: 0, y: frame.height - thickness, width: frame.width, height: thickness)
+        case .left:
+            border.frame = CGRect(x: 0, y: 0, width: thickness, height: frame.height)
+        case .right:
+            border.frame = CGRect(x: frame.width - thickness, y: 0, width: thickness, height: frame.height)
+        default:
+            break
+        }
+        
+        border.backgroundColor = color.cgColor;
+        
+        addSublayer(border)
+    }
+}
+

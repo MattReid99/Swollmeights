@@ -63,7 +63,12 @@ class Locations {
     static func getCityNames() {
         getLocationData()
         
+        cityNames.removeAll()
+        counties.removeAll()
+        
         let defaults = UserDefaults.standard
+        
+        
         
         for i in 1...arrData.count-2 {
             cityNames.append("\(arrData[i][0]), \(arrData[i][1])")
@@ -71,6 +76,7 @@ class Locations {
         }
         defaults.set(cityNames, forKey: "cities")
         defaults.set(counties, forKey: "counties")
+        defaults.synchronize()
     }
     
     static func retrieveData() {
@@ -80,8 +86,10 @@ class Locations {
             Locations.getCityNames()
         }
         else {
+            if (defaults.array(forKey: "counties") != nil && defaults.array(forKey: "cities") != nil) {
             self.counties = defaults.array(forKey: "counties") as! [String]
             self.cityNames = defaults.array(forKey: "cities") as! [String]
+            }
         }
     }
 }

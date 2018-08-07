@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5093DEB210FF95A00B40AB6 /* signup.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B5093DEA210FF95800B40AB6 /* signup.jpg */; };
+		B5093DED210FF9DF00B40AB6 /* 273811.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B5093DEC210FF9DE00B40AB6 /* 273811.jpg */; };
+		B5093DF0210FFA4800B40AB6 /* image-6-background-with-bokeh-lights.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B5093DEF210FFA4600B40AB6 /* image-6-background-with-bokeh-lights.jpg */; };
+		B5093DF2210FFADC00B40AB6 /* bkgrd.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B5093DF1210FFADB00B40AB6 /* bkgrd.jpeg */; };
+		B5093DF4210FFD8300B40AB6 /* swollmeightsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B5093DF3210FFD8200B40AB6 /* swollmeightsIcon.png */; };
+		B5093DF62110015300B40AB6 /* matterhorn-vector.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B5093DF52110015200B40AB6 /* matterhorn-vector.jpg */; };
+		B5093DF821100D1E00B40AB6 /* NewAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5093DF721100D1E00B40AB6 /* NewAccountVC.swift */; };
 		B5177C712085294200E8420D /* ChangeLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5177C702085294200E8420D /* ChangeLocationVC.swift */; };
 		B51858A22083452800F11EC3 /* jsonMap.txt in Resources */ = {isa = PBXBuildFile; fileRef = B51858A12083452800F11EC3 /* jsonMap.txt */; };
 		B51858A42084493E00F11EC3 /* icons8-marker-48.png in Resources */ = {isa = PBXBuildFile; fileRef = B51858A32084493C00F11EC3 /* icons8-marker-48.png */; };
@@ -62,6 +69,7 @@
 		B5771168210D98C8000FCE46 /* locations.txt in Resources */ = {isa = PBXBuildFile; fileRef = B5771167210D98C8000FCE46 /* locations.txt */; };
 		B577116A210D9B9E000FCE46 /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5771169210D9B9E000FCE46 /* Locations.swift */; };
 		B577116C210E6093000FCE46 /* icons8-back-filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = B577116B210E608E000FCE46 /* icons8-back-filled-50.png */; };
+		B577116E210E854F000FCE46 /* ConvoContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B577116D210E854F000FCE46 /* ConvoContainerVC.swift */; };
 		B5B446E820B7830000C2A5E9 /* icons8-right-64.png in Resources */ = {isa = PBXBuildFile; fileRef = B5B446E720B782FE00C2A5E9 /* icons8-right-64.png */; };
 		B5B446EA20B7851C00C2A5E9 /* icons8-back-arrow-100.png in Resources */ = {isa = PBXBuildFile; fileRef = B5B446E920B7851A00C2A5E9 /* icons8-back-arrow-100.png */; };
 		B5E12C3E20B776BB004863BA /* icons8-settings-100.png in Resources */ = {isa = PBXBuildFile; fileRef = B5E12C3D20B776B9004863BA /* icons8-settings-100.png */; };
@@ -76,6 +84,13 @@
 /* Begin PBXFileReference section */
 		716BFED3E9C203E29EEC45FF /* Pods-Swollmeights.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swollmeights.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swollmeights/Pods-Swollmeights.release.xcconfig"; sourceTree = "<group>"; };
 		B18F90637D3B1926D5E269A9 /* Pods-Swollmeights.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swollmeights.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swollmeights/Pods-Swollmeights.debug.xcconfig"; sourceTree = "<group>"; };
+		B5093DEA210FF95800B40AB6 /* signup.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = signup.jpg; sourceTree = "<group>"; };
+		B5093DEC210FF9DE00B40AB6 /* 273811.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 273811.jpg; sourceTree = "<group>"; };
+		B5093DEF210FFA4600B40AB6 /* image-6-background-with-bokeh-lights.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "image-6-background-with-bokeh-lights.jpg"; sourceTree = "<group>"; };
+		B5093DF1210FFADB00B40AB6 /* bkgrd.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bkgrd.jpeg; sourceTree = "<group>"; };
+		B5093DF3210FFD8200B40AB6 /* swollmeightsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swollmeightsIcon.png; sourceTree = "<group>"; };
+		B5093DF52110015200B40AB6 /* matterhorn-vector.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "matterhorn-vector.jpg"; sourceTree = "<group>"; };
+		B5093DF721100D1E00B40AB6 /* NewAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountVC.swift; sourceTree = "<group>"; };
 		B5177C702085294200E8420D /* ChangeLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeLocationVC.swift; sourceTree = "<group>"; };
 		B51858A12083452800F11EC3 /* jsonMap.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = jsonMap.txt; sourceTree = "<group>"; };
 		B51858A32084493C00F11EC3 /* icons8-marker-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-marker-48.png"; sourceTree = "<group>"; };
@@ -135,6 +150,7 @@
 		B5771167210D98C8000FCE46 /* locations.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = locations.txt; sourceTree = "<group>"; };
 		B5771169210D9B9E000FCE46 /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
 		B577116B210E608E000FCE46 /* icons8-back-filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-back-filled-50.png"; sourceTree = "<group>"; };
+		B577116D210E854F000FCE46 /* ConvoContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvoContainerVC.swift; sourceTree = "<group>"; };
 		B5B446E720B782FE00C2A5E9 /* icons8-right-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-right-64.png"; sourceTree = "<group>"; };
 		B5B446E920B7851A00C2A5E9 /* icons8-back-arrow-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-back-arrow-100.png"; sourceTree = "<group>"; };
 		B5E12C3D20B776B9004863BA /* icons8-settings-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-settings-100.png"; sourceTree = "<group>"; };
@@ -195,6 +211,7 @@
 				B53F956620087A4A00C2C3B7 /* Images */,
 				B53F9550200875FA00C2C3B7 /* AppDelegate.swift */,
 				B53F9554200875FA00C2C3B7 /* Main.storyboard */,
+				B5093DF721100D1E00B40AB6 /* NewAccountVC.swift */,
 				B53F9557200875FA00C2C3B7 /* Assets.xcassets */,
 				B53F9559200875FA00C2C3B7 /* LaunchScreen.storyboard */,
 				B53F955C200875FA00C2C3B7 /* Info.plist */,
@@ -221,6 +238,7 @@
 				B5177C702085294200E8420D /* ChangeLocationVC.swift */,
 				B5771167210D98C8000FCE46 /* locations.txt */,
 				B5771169210D9B9E000FCE46 /* Locations.swift */,
+				B577116D210E854F000FCE46 /* ConvoContainerVC.swift */,
 			);
 			path = Swollmeights;
 			sourceTree = "<group>";
@@ -228,6 +246,12 @@
 		B53F956620087A4A00C2C3B7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B5093DF52110015200B40AB6 /* matterhorn-vector.jpg */,
+				B5093DF3210FFD8200B40AB6 /* swollmeightsIcon.png */,
+				B5093DF1210FFADB00B40AB6 /* bkgrd.jpeg */,
+				B5093DEF210FFA4600B40AB6 /* image-6-background-with-bokeh-lights.jpg */,
+				B5093DEC210FF9DE00B40AB6 /* 273811.jpg */,
+				B5093DEA210FF95800B40AB6 /* signup.jpg */,
 				B577116B210E608E000FCE46 /* icons8-back-filled-50.png */,
 				B5B446E920B7851A00C2A5E9 /* icons8-back-arrow-100.png */,
 				B5B446E720B782FE00C2A5E9 /* icons8-right-64.png */,
@@ -358,6 +382,7 @@
 				B55858E2202E3A7B00F4F0AB /* icons8-google-plus-528.png in Resources */,
 				B51AE55C200B031E00E2552F /* other.png in Resources */,
 				B5B446E820B7830000C2A5E9 /* icons8-right-64.png in Resources */,
+				B5093DF2210FFADC00B40AB6 /* bkgrd.jpeg in Resources */,
 				B53F957220089A5200C2C3B7 /* settings.png in Resources */,
 				B51858A620847D3600F11EC3 /* icons8-marker-90.png in Resources */,
 				B55858D6202D297000F4F0AB /* icons8-menu-50.png in Resources */,
@@ -370,18 +395,23 @@
 				B55858E4202E3A7B00F4F0AB /* icons8-facebook-520.png in Resources */,
 				B55858DC202D352100F4F0AB /* icons8-edit-500.png in Resources */,
 				B51BA5872050DCB400117A9B /* swollmeightsIcon.jpg in Resources */,
+				B5093DF0210FFA4800B40AB6 /* image-6-background-with-bokeh-lights.jpg in Resources */,
 				B55858F2202E8DB900F4F0AB /* icons8-delete-100-2.png in Resources */,
 				B55858E8202E5AAA00F4F0AB /* icons8-undo-100.png in Resources */,
 				B52096872082A0FC005AB0F4 /* FindView.xib in Resources */,
 				B51858A22083452800F11EC3 /* jsonMap.txt in Resources */,
+				B5093DF62110015300B40AB6 /* matterhorn-vector.jpg in Resources */,
 				B51858A42084493E00F11EC3 /* icons8-marker-48.png in Resources */,
+				B5093DED210FF9DF00B40AB6 /* 273811.jpg in Resources */,
 				B51AE551200B019E00E2552F /* chest.png in Resources */,
+				B5093DF4210FFD8300B40AB6 /* swollmeightsIcon.png in Resources */,
 				B55858E3202E3A7B00F4F0AB /* icons8-twitter-520.png in Resources */,
 				B53F957320089A5200C2C3B7 /* invite.png in Resources */,
 				B53F957620089B8300C2C3B7 /* location.png in Resources */,
 				B53F957420089A5200C2C3B7 /* profile.png in Resources */,
 				B51AE556200B025900E2552F /* squats.png in Resources */,
 				B53F9556200875FA00C2C3B7 /* Main.storyboard in Resources */,
+				B5093DEB210FF95A00B40AB6 /* signup.jpg in Resources */,
 				B52096892083245A005AB0F4 /* JSONMapData.strings in Resources */,
 				B55858D1202D1C8100F4F0AB /* GoogleService-Info.plist in Resources */,
 				B55858F0202E8D3600F4F0AB /* icons8-heart-outline-filled-100.png in Resources */,
@@ -469,6 +499,8 @@
 				B55858E6202E3C7500F4F0AB /* SignUpVC.swift in Sources */,
 				B5E88E6D203CEF4D00D7C78C /* ConversationViewController.swift in Sources */,
 				B53F956A20087AA600C2C3B7 /* MainVC.swift in Sources */,
+				B577116E210E854F000FCE46 /* ConvoContainerVC.swift in Sources */,
+				B5093DF821100D1E00B40AB6 /* NewAccountVC.swift in Sources */,
 				B51AE54D200ACAD800E2552F /* LiftCell.swift in Sources */,
 				B53F956C200887AE00C2C3B7 /* MenuTableVC.swift in Sources */,
 				B55858EE202E7C7500F4F0AB /* AdditionalInfoVC.swift in Sources */,

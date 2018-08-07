@@ -16,7 +16,5 @@ class ImageCVCell: UICollectionViewCell {
     @IBOutlet weak var experienceLabel: UILabel!
     @IBOutlet weak var goalLabel: UILabel!
    
-    @IBOutlet weak var v1: UIView!
-    @IBOutlet weak var v2: UIView!
-    
+    @IBOutlet weak var blankView : UIView?
 }

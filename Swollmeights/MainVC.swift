@@ -47,24 +47,26 @@ class MainVC: UIViewController, SWRevealViewControllerDelegate, CLLocationManage
 
     override func viewWillAppear(_ animated: Bool) {
         
-        let defaults = UserDefaults.standard
-        
-        if (defaults.array(forKey: "counties") == nil || defaults.array(forKey: "cities") == nil) {
-            Locations.getCityNames()
-        }
-        
-        if (Locations.cityNames == nil) {
-            Locations.retrieveData()
-        }
-        
         let uid = Auth.auth().currentUser?.uid
-        
         
         guard uid != nil else {
             let signUp = self.storyboard?.instantiateViewController(withIdentifier: "signUp") as! SignUpVC
             self.present(signUp, animated: true, completion: nil)
             return
         }
+        
+        let defaults = UserDefaults.standard
+        
+        
+        if (defaults.array(forKey: "counties") == nil || defaults.array(forKey: "cities") == nil) {
+            Locations.getCityNames()
+        }
+        
+        if (Locations.cityNames.count < 2) {
+            Locations.retrieveData()
+        }
+        
+        defaults.set(uid!, forKey: "uid")
         
         locationBtn.layer.cornerRadius = 12
         
@@ -82,86 +84,16 @@ class MainVC: UIViewController, SWRevealViewControllerDelegate, CLLocationManage
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
-            
+            setMap()
+        }
+        
+        else {
+            let signUp = self.storyboard?.instantiateViewController(withIdentifier: "signUp") as! SignUpVC
+            self.present(signUp, animated: true, completion: nil)
+            return
         }
         
         let ref = Database.database().reference()
-        
-        
-        // if location in defaults is current, keep button state as "current location", else, upload new location, change
-        
-        
-        geocode(latitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!) { placemark, error in
-            guard let placemark = placemark, error == nil else {
-                return }
-            // you should always update your UI in the main thread
-            DispatchQueue.main.async {
-                //  update UI here
-
-                if (!defaults.bool(forKey: "customLocation")) {
-                
-                self.location = placemark.locality!
-                self.getLocation(cityName: self.location!)
-                    
-                let feed = ["location" : self.location!]
-                ref.child("users").child(uid!).updateChildValues(feed)
-                                let defaults = UserDefaults.standard
-                                defaults.set(self.location!, forKey: "location")
-                }
-                else {
-                    
-                    guard defaults.string(forKey: "location") != nil else {
-                        self.location = placemark.locality!
-                        self.getLocation(cityName: self.location!)
-                        
-                        let feed = ["location" : defaults.string(forKey: "location")!]
-                        
-                        ref.child("users").child(uid!).updateChildValues(feed)
-
-                        return
-                    }
-                    
-                    ref.child("users").child(uid!).updateChildValues(["location" : defaults.string(forKey: "location")!])
-                    
-                    self.locationBtn.setTitle("\(defaults.string(forKey: "location")!)", for: .normal)
-        
-                }
-            }
-        }
-        
-       
-        let camera = GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!, zoom: 8.0)
-        var mapView = GMSMapView.map(withFrame: mapViewFrame.frame, camera: camera)
-        
-        if let jsonMap = Bundle.main.path(forResource: "jsonMap", ofType: "txt") {
-            do {
-                let contents = try String(contentsOfFile: jsonMap)
-                do {
-                    // Set the map style by passing a valid JSON string.
-                    
-                    mapView.mapStyle = try GMSMapStyle(jsonString: contents)
-                } catch {
-                    NSLog("One or more of the map styles failed to load. \(error)")
-                }
-            }
-            catch {
-                NSLog("One or more of the map styles failed to load. \(error)")
-            }
-        }
-        
-        // Creates a marker in the center of the map.
-        let marker = GMSMarker()
-        
-        var markerImage = UIImage.init(named: "icons8-marker-90.png")
-        markerImage = self.imageWithImage(image: markerImage!, scaledToSize: .init(width: 40, height: 40))
-        
-        marker.position = (locationManager.location?.coordinate)!
-        marker.map = mapView
-        marker.icon = markerImage!
-        marker.appearAnimation = .pop
-        
-        view.addSubview(mapView)
-        view.sendSubview(toBack: mapView)
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -215,11 +147,109 @@ class MainVC: UIViewController, SWRevealViewControllerDelegate, CLLocationManage
         ref.removeAllObservers()
     }
     
+    func setMap() {
+        let ref = Database.database().reference()
+        let uid = Auth.auth().currentUser?.uid
+        let defaults = UserDefaults.standard
+        
+        if defaults.bool(forKey: "customLocation") == nil {
+            defaults.set(false, forKey: "customLocation")
+        }
+        
+        defaults.synchronize()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            
+            guard locationManager.location?.coordinate.longitude != nil && locationManager.location?.coordinate.latitude != nil else {
+                return
+            }
+            
+            geocode(latitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!) { placemark, error in
+                guard let placemark = placemark, error == nil else {
+                    return }
+                // you should always update your UI in the main thread
+                DispatchQueue.main.async {
+                    //  update UI here
+                    
+                    if (!defaults.bool(forKey: "customLocation")) {
+                        
+                        self.location = placemark.locality!
+                        self.getLocation(cityName: self.location!)
+                        
+                        let feed = ["location" : self.location!]
+                        ref.child("users").child(uid!).updateChildValues(feed)
+                        let defaults = UserDefaults.standard
+                        defaults.set(self.location!, forKey: "location")
+                    }
+                    else {
+                        
+                        guard defaults.string(forKey: "location") != nil else {
+                            self.location = placemark.locality!
+                            self.getLocation(cityName: self.location!)
+                            
+                            let feed = ["location" : self.location!]
+                            
+                            ref.child("users").child(uid!).updateChildValues(feed)
+                            
+                            return
+                        }
+                        
+                        ref.child("users").child(uid!).updateChildValues(["location" : defaults.string(forKey: "location")!])
+                        
+                        self.locationBtn.setTitle("\(defaults.string(forKey: "location")!)", for: .normal)
+                        
+                    }
+                }
+            }
+            
+            let camera = GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!, zoom: 8.0)
+            var mapView = GMSMapView.map(withFrame: mapViewFrame.frame, camera: camera)
+            
+            if let jsonMap = Bundle.main.path(forResource: "jsonMap", ofType: "txt") {
+                do {
+                    let contents = try String(contentsOfFile: jsonMap)
+                    do {
+                        // Set the map style by passing a valid JSON string.
+                        
+                        mapView.mapStyle = try GMSMapStyle(jsonString: contents)
+                    } catch {
+                        NSLog("One or more of the map styles failed to load. \(error)")
+                    }
+                }
+                catch {
+                    NSLog("One or more of the map styles failed to load. \(error)")
+                }
+            }
+            
+            // Creates a marker in the center of the map.
+            let marker = GMSMarker()
+            
+            var markerImage = UIImage.init(named: "icons8-marker-90.png")
+            markerImage = self.imageWithImage(image: markerImage!, scaledToSize: .init(width: 40, height: 40))
+            
+            marker.position = (locationManager.location?.coordinate)!
+            marker.map = mapView
+            marker.icon = markerImage!
+            marker.appearAnimation = .pop
+            
+            view.addSubview(mapView)
+            view.sendSubview(toBack: mapView)
+            
+        }
+        
+        
+    }
+    
+    
     func getLocation(cityName: String) {
         
         if let indexOf = Locations.cityNames.index(where: { $0 == "\(cityName)" }) {
             self.location = Locations.counties[indexOf]
         }
+        else {
+            self.location == cityName
+        }
+        UserDefaults.standard.set(self.location!, forKey: "location")
     }
     
     @IBAction func locationBtnPressed(_ sender: UIButton) {
@@ -232,6 +262,9 @@ class MainVC: UIViewController, SWRevealViewControllerDelegate, CLLocationManage
             locationBtn.setTitle("Your location", for: .normal)
             
             let ref = Database.database().reference()
+            
+            if CLLocationManager.locationServicesEnabled() {
+            
             geocode(latitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!) { placemark, error in
                 guard let placemark = placemark, error == nil else {
                     return }
@@ -246,6 +279,7 @@ class MainVC: UIViewController, SWRevealViewControllerDelegate, CLLocationManage
                         ref.child("users").child(uid!).updateChildValues(feed)
                         let defaults = UserDefaults.standard
                         defaults.set(self.location!, forKey: "location")
+                    }
                 }
             }
         }
@@ -400,7 +434,7 @@ public extension UIView {
      
      - parameter duration: custom animation duration
      */
-    func fadeIn(duration: TimeInterval = 1.0) {
+    func fadeIn(duration: TimeInterval = 0.6) {
         UIView.animate(withDuration: duration, animations: {
             self.alpha = 1.0
         })

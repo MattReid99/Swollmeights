@@ -153,7 +153,7 @@ class MatchesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let conversationVC = storyboard.instantiateViewController(withIdentifier: "conversation") as! ConversationViewController
+        let conversationVC = storyboard.instantiateViewController(withIdentifier: "conversation") as! ConvoContainerVC
         
         let cell = tableView.cellForRow(at: indexPath) as! MatchCell
         
@@ -164,7 +164,7 @@ class MatchesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         conversationVC.recipientName = names[indexPath.row]
         
-        self.navigationController?.pushViewController(conversationVC, animated: true)
+        self.present(conversationVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

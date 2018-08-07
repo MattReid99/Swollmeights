@@ -19,8 +19,7 @@ class ConversationViewController: JSQMessagesViewController {
     var recipientID : String?
     
     var img : UIImage?
-    
-    @IBOutlet weak var backButton: UIButton!
+
     
     lazy var outgoingBubble: JSQMessagesBubbleImage = {
         return JSQMessagesBubbleImageFactory()!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())//UIColor.init(red: 82/255, green: 150/255, blue: 213/255, alpha: 1.0))\
@@ -39,7 +38,9 @@ class ConversationViewController: JSQMessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        self.inputToolbar.contentView.leftBarButtonItem = nil
         
         self.view.isUserInteractionEnabled = true
         let swipe = UIPanGestureRecognizer.init(target: self, action: #selector(backPressed))
@@ -47,15 +48,13 @@ class ConversationViewController: JSQMessagesViewController {
 //        swipe.numberOfTapsRequired = 1
         
         self.view.addGestureRecognizer(swipe)
-        self.inputToolbar.contentView.leftBarButtonItem = nil
         
         let uid = Auth.auth().currentUser?.uid
         let defaults = UserDefaults.standard
         
         senderId = uid!
         senderDisplayName = defaults.string(forKey: "full name")
-        
-        backButton.addTarget(self, action: #selector(backPressed), for: UIControlEvents.touchUpInside)
+
 //
         //navigationController?.isNavigationBarHidden = false
 //
@@ -104,14 +103,6 @@ class ConversationViewController: JSQMessagesViewController {
                 }
             }
         })
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        let height: CGFloat = 50 //whatever height you want to add to the existing height
-        let bounds = self.navigationController!.navigationBar.bounds
-        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + height)
-        
     }
     
     @objc func backPressed() {

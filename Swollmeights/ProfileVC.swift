@@ -34,6 +34,9 @@ class ProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
+        
         let ref = Database.database().reference()
         let uid = Auth.auth().currentUser?.uid
         
@@ -86,6 +89,8 @@ class ProfileVC: UIViewController {
             defaults.set(nil, forKey: "customLocation")
             defaults.set(nil, forKey: "GoogleIDToken")
             defaults.set(nil, forKey: "blockedUsers")
+            
+            defaults.synchronize()
             
             let main = UIStoryboard.init(name: "Main", bundle: nil)
             let signUpVC = main.instantiateViewController(withIdentifier: "signUp") as! SignUpVC
