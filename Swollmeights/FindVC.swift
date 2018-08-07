@@ -151,10 +151,12 @@ class FindVC: UIViewController {
                         
                         if !userBlocked {
                     self.users.append(user)
+                    self.shuffleUsers()
                     self.collectionView.reloadData()
                         }
                     }
                 }
+                self.shuffleUsers()
                  self.collectionView.reloadData()
             }
             else {
@@ -239,6 +241,18 @@ extension FindVC : UICollectionViewDataSource, UICollectionViewDelegate {
         
         
         return cell
+    }
+    
+    func shuffleUsers() {
+        for i in 0..<users.count
+        {
+            let rand = Int(arc4random_uniform(UInt32(users.count)))
+            
+            users.append(users[rand])
+            
+            users.remove(at: rand)
+        }
+
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
