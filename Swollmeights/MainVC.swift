@@ -396,9 +396,7 @@ extension MainVC : UICollectionViewDataSource, UICollectionViewDelegate
         cell.dayLabel.text = trainingDays[indexPath.row]
         
         if prevSelectedIndex == indexPath {
-            for elem in indicators {
-                elem?.fadeIn(duration: 0.4)
-            }
+            cell.selectionIndicator.fadeIn(duration: 0.4)
         }
         
         return cell

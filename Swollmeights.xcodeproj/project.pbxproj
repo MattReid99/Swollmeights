@@ -18,6 +18,7 @@
 		B51858A22083452800F11EC3 /* jsonMap.txt in Resources */ = {isa = PBXBuildFile; fileRef = B51858A12083452800F11EC3 /* jsonMap.txt */; };
 		B51858A42084493E00F11EC3 /* icons8-marker-48.png in Resources */ = {isa = PBXBuildFile; fileRef = B51858A32084493C00F11EC3 /* icons8-marker-48.png */; };
 		B51858A620847D3600F11EC3 /* icons8-marker-90.png in Resources */ = {isa = PBXBuildFile; fileRef = B51858A520847D3500F11EC3 /* icons8-marker-90.png */; };
+		B518A3242120FAD300DFFD4A /* CandleMustard.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B518A3232120FAD200DFFD4A /* CandleMustard.ttf */; };
 		B51AE54B200AB48900E2552F /* icons8-calendar-50.png in Resources */ = {isa = PBXBuildFile; fileRef = B51AE54A200AB48800E2552F /* icons8-calendar-50.png */; };
 		B51AE54D200ACAD800E2552F /* LiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51AE54C200ACAD800E2552F /* LiftCell.swift */; };
 		B51AE551200B019E00E2552F /* chest.png in Resources */ = {isa = PBXBuildFile; fileRef = B51AE550200B019D00E2552F /* chest.png */; };
@@ -25,7 +26,6 @@
 		B51AE556200B025900E2552F /* squats.png in Resources */ = {isa = PBXBuildFile; fileRef = B51AE554200B025900E2552F /* squats.png */; };
 		B51AE55C200B031E00E2552F /* other.png in Resources */ = {isa = PBXBuildFile; fileRef = B51AE558200B031D00E2552F /* other.png */; };
 		B51AE55D200B031E00E2552F /* push.png in Resources */ = {isa = PBXBuildFile; fileRef = B51AE559200B031D00E2552F /* push.png */; };
-		B51AE55E200B031E00E2552F /* arms.png in Resources */ = {isa = PBXBuildFile; fileRef = B51AE55A200B031E00E2552F /* arms.png */; };
 		B51AE55F200B031E00E2552F /* pull.png in Resources */ = {isa = PBXBuildFile; fileRef = B51AE55B200B031E00E2552F /* pull.png */; };
 		B51AE561200B04CC00E2552F /* core.png in Resources */ = {isa = PBXBuildFile; fileRef = B51AE560200B04CC00E2552F /* core.png */; };
 		B51AE563200B0A0900E2552F /* icons8-menu-48-2.png in Resources */ = {isa = PBXBuildFile; fileRef = B51AE562200B0A0800E2552F /* icons8-menu-48-2.png */; };
@@ -37,6 +37,7 @@
 		B5209685208106F0005AB0F4 /* NoMatchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5209684208106F0005AB0F4 /* NoMatchesView.swift */; };
 		B52096872082A0FC005AB0F4 /* FindView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B52096862082A0FC005AB0F4 /* FindView.xib */; };
 		B52096892083245A005AB0F4 /* JSONMapData.strings in Resources */ = {isa = PBXBuildFile; fileRef = B52096882083245A005AB0F4 /* JSONMapData.strings */; };
+		B5300B852127F1860088F294 /* blue-gradients.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B5300B842127F1830088F294 /* blue-gradients.jpg */; };
 		B53F9551200875FA00C2C3B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53F9550200875FA00C2C3B7 /* AppDelegate.swift */; };
 		B53F9556200875FA00C2C3B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B53F9554200875FA00C2C3B7 /* Main.storyboard */; };
 		B53F9558200875FA00C2C3B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B53F9557200875FA00C2C3B7 /* Assets.xcassets */; };
@@ -95,6 +96,7 @@
 		B51858A12083452800F11EC3 /* jsonMap.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = jsonMap.txt; sourceTree = "<group>"; };
 		B51858A32084493C00F11EC3 /* icons8-marker-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-marker-48.png"; sourceTree = "<group>"; };
 		B51858A520847D3500F11EC3 /* icons8-marker-90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-marker-90.png"; sourceTree = "<group>"; };
+		B518A3232120FAD200DFFD4A /* CandleMustard.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CandleMustard.ttf; sourceTree = "<group>"; };
 		B51AE54A200AB48800E2552F /* icons8-calendar-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-calendar-50.png"; path = "../../../../Downloads/icons8-calendar-50.png"; sourceTree = "<group>"; };
 		B51AE54C200ACAD800E2552F /* LiftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiftCell.swift; sourceTree = "<group>"; };
 		B51AE550200B019D00E2552F /* chest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chest.png; path = ../../../../Downloads/chest.png; sourceTree = "<group>"; };
@@ -102,7 +104,6 @@
 		B51AE554200B025900E2552F /* squats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = squats.png; path = ../../../../Downloads/squats.png; sourceTree = "<group>"; };
 		B51AE558200B031D00E2552F /* other.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = other.png; path = ../../../../Downloads/other.png; sourceTree = "<group>"; };
 		B51AE559200B031D00E2552F /* push.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = push.png; path = ../../../../Downloads/push.png; sourceTree = "<group>"; };
-		B51AE55A200B031E00E2552F /* arms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arms.png; path = ../../../../Downloads/arms.png; sourceTree = "<group>"; };
 		B51AE55B200B031E00E2552F /* pull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pull.png; path = ../../../../Downloads/pull.png; sourceTree = "<group>"; };
 		B51AE560200B04CC00E2552F /* core.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = core.png; path = ../../../../Downloads/core.png; sourceTree = "<group>"; };
 		B51AE562200B0A0800E2552F /* icons8-menu-48-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-menu-48-2.png"; path = "../../../../Downloads/icons8-menu-48-2.png"; sourceTree = "<group>"; };
@@ -114,6 +115,7 @@
 		B5209684208106F0005AB0F4 /* NoMatchesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoMatchesView.swift; sourceTree = "<group>"; };
 		B52096862082A0FC005AB0F4 /* FindView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FindView.xib; sourceTree = "<group>"; };
 		B52096882083245A005AB0F4 /* JSONMapData.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = JSONMapData.strings; sourceTree = "<group>"; };
+		B5300B842127F1830088F294 /* blue-gradients.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "blue-gradients.jpg"; sourceTree = "<group>"; };
 		B53F954D200875FA00C2C3B7 /* Swollmeights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swollmeights.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B53F9550200875FA00C2C3B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B53F9555200875FA00C2C3B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -182,6 +184,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B518A3252120FB1A00DFFD4A /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B518A3232120FAD200DFFD4A /* CandleMustard.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		B53F9544200875FA00C2C3B7 = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +213,7 @@
 		B53F954F200875FA00C2C3B7 /* Swollmeights */ = {
 			isa = PBXGroup;
 			children = (
+				B518A3252120FB1A00DFFD4A /* fonts */,
 				B51858A12083452800F11EC3 /* jsonMap.txt */,
 				B55858D2202D249700F4F0AB /* Swollmeights.entitlements */,
 				B55858D0202D1C8100F4F0AB /* GoogleService-Info.plist */,
@@ -246,6 +257,7 @@
 		B53F956620087A4A00C2C3B7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B5300B842127F1830088F294 /* blue-gradients.jpg */,
 				B5093DF52110015200B40AB6 /* matterhorn-vector.jpg */,
 				B5093DF3210FFD8200B40AB6 /* swollmeightsIcon.png */,
 				B5093DF1210FFADB00B40AB6 /* bkgrd.jpeg */,
@@ -274,7 +286,6 @@
 				B51AE560200B04CC00E2552F /* core.png */,
 				B51AE559200B031D00E2552F /* push.png */,
 				B51AE558200B031D00E2552F /* other.png */,
-				B51AE55A200B031E00E2552F /* arms.png */,
 				B51AE55B200B031E00E2552F /* pull.png */,
 				B51AE554200B025900E2552F /* squats.png */,
 				B51AE552200B01BD00E2552F /* cardio.png */,
@@ -389,9 +400,10 @@
 				B549571B2086804700502CBF /* icons8-enter-100.png in Resources */,
 				B51AE563200B0A0900E2552F /* icons8-menu-48-2.png in Resources */,
 				B51AE54B200AB48900E2552F /* icons8-calendar-50.png in Resources */,
-				B51AE55E200B031E00E2552F /* arms.png in Resources */,
+				B518A3242120FAD300DFFD4A /* CandleMustard.ttf in Resources */,
 				B53F957120089A5200C2C3B7 /* home.png in Resources */,
 				B55858EC202E636E00F4F0AB /* icons8-cancel-100.png in Resources */,
+				B5300B852127F1860088F294 /* blue-gradients.jpg in Resources */,
 				B55858E4202E3A7B00F4F0AB /* icons8-facebook-520.png in Resources */,
 				B55858DC202D352100F4F0AB /* icons8-edit-500.png in Resources */,
 				B51BA5872050DCB400117A9B /* swollmeightsIcon.jpg in Resources */,

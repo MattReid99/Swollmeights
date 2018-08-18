@@ -11,6 +11,7 @@ import Firebase
 
 class NewAccountVC: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var pwField: UITextField!
     @IBOutlet weak var confirmPWfield: UITextField!
@@ -34,7 +35,14 @@ class NewAccountVC: UIViewController, UITextFieldDelegate {
         confirmPWfield.layer.cornerRadius = 8.0
         confirmPWfield.clipsToBounds = false
     
-        //self.signUpBtn.frame = CGRect.init(x: 0, y: view.frame.height - 50, width: view.frame.width, height: 50)
+        print("max Y for view = \(view.frame.maxY)")
+        self.signUpBtn.frame = CGRect.init(x: 0, y: self.signUpBtn.frame.minY, width: self.containerView.frame.width, height: 50)
+        
+        self.emailField.frame = CGRect.init(x: 50, y: 0, width: view.frame.width-100, height: max(20, view.frame.height/10))
+        
+        self.pwField.frame = CGRect.init(x: 50, y: self.emailField.frame.maxY + 20, width: view.frame.width-100, height: max(20, view.frame.height/10))
+        
+        self.confirmPWfield.frame = CGRect.init(x: 50, y: self.pwField.frame.maxY + 20, width: view.frame.width-100, height: max(20, view.frame.height/10))
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

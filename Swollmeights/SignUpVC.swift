@@ -33,6 +33,8 @@ class SignUpVC: UIViewController, UITextFieldDelegate
     
     override func viewDidLoad() {
         
+        view.backgroundColor = 
+        
         emailField.delegate = self
         pwField.delegate = self
         

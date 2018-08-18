@@ -69,9 +69,13 @@ class ProfileVC: UIViewController {
             ref.removeAllObservers()
         })
         
-        editImgView.maskCircle(anyImage: editImgView.image!)
-        editImgView.layer.shadowRadius = 2.0
-        imageDisplay.maskCircle(anyImage: imageDisplay.image!)
+        if UIDevice().userInterfaceIdiom == .phone {
+            if UIScreen.main.nativeBounds.height > 1136 {
+                editImgView.maskCircle(anyImage: editImgView.image!)
+                editImgView.layer.shadowRadius = 2.0
+                imageDisplay.maskCircle(anyImage: imageDisplay.image!)
+            }
+        }
                 open.addTarget(self.revealViewController(), action:#selector(SWRevealViewController.revealToggle(_:)), for:UIControlEvents.touchUpInside)
        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
@@ -80,7 +84,7 @@ class ProfileVC: UIViewController {
     @IBAction func signOutPressed(_ sender: UIButton) {
         
         let alert = UIAlertController.init(title: "Sign out?", message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction.init(title: "Ok", style: .default, handler: { (action:UIAlertAction!) in
+        alert.addAction(UIAlertAction.init(title: "Yes", style: .default, handler: { (action:UIAlertAction!) in
             
             let defaults = UserDefaults.standard
             defaults.set(nil, forKey: "uid")
@@ -97,10 +101,10 @@ class ProfileVC: UIViewController {
             
             do {
                 try Auth.auth().signOut()
-                print("sign out successful")
+                
             }
             catch {
-                print("sign out failed")
+                
             }
             
             self.present(signUpVC, animated: true, completion: nil)

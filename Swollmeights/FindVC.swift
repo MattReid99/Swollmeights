@@ -235,9 +235,8 @@ extension FindVC : UICollectionViewDataSource, UICollectionViewDelegate {
         cell.ageLabel.text =
             "\(users[indexPath.row].age)"
         cell.experienceLabel.text = "\(users[indexPath.row].exp)"
-        cell.goalLabel.text = users[indexPath.row].goals
-        cell.blankView?.layer.addBorder(edge: .right, color: .gray, thickness: 0.3)
-        cell.blankView?.layer.addBorder(edge: .left, color: .gray, thickness: 0.3)
+        //cell.goalLabel.text = users[indexPath.row].goals
+       // cell.blankView?.layer.addBorder(edge: .right, color: .gray, thickness: 0.3)
         
         
         return cell
